@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko</title>
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header" class="container">
+        <div class="nav__container flex">
+            <div class="logo">
+                <h1>Lorem, ipsum.</h1>
+            </div>
+
+            <nav id="navbar">
+                <ul class="nav__list flex">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link flex active-link" data-section="home"><i class='bx bxs-home-alt-2'></i>Beranda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link flex search-link" data-section="search"><i class='bx bx-search-alt-2'></i>Cari</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link flex" data-section="cart"><i class='bx bx-cart'></i>Keranjang</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <a href="profile.html"><img src="assets/img/profile1.jpg" alt="" class="profile__img"></a>
+        </div>
+    </header>
+    <!-- Header end -->
+
+    <!-- Main Page Mobile -->
+    <main id="mobile">
+        <!-- Home Section -->
+        <section id="home" class="section container flex active-section">
+            <!-- Home Banner -->
+            <div class="home__banner swiper homeSwiper">
+                <div class="swiper-wrapper home__wrapper">
+                    <div class="swiper-slide home__slide">
+                        <a href="">
+                            <!-- Banner IMG -->
+                            <img src="assets/img/banner/banner1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide home__slide">
+                        <a href="">
+                            <!-- Banner IMG -->
+                            <img src="assets/img/banner/banner1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide home__slide">
+                        <a href="">
+                            <!-- Banner IMG -->
+                            <img src="assets/img/banner/banner1.png" alt="">
+                        </a>
+                    </div>
+                    <div class="swiper-slide home__slide">
+                        <a href="">
+                            <!-- Banner IMG -->
+                            <img src="assets/img/banner/banner1.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Slide -->
+            <div class="card__section">
+                <h2 class="section__title">Makanan</h2>
+
+                <div class="card__swiper swiper cardSwiper">
+                    <div class="swiper-wrapper flex">
+                        <!-- Card Slide -->
+                        <div class="swiper-slide card__slide flex">
+                            <div class="card__slide__img">
+                                <img src="assets/img/barang/indomiegoreng.png" alt="card">
+                            </div>
+                            <div class="card__slide__content flex">
+                                <h3 class="product__name">Indomie Goreng</h3>
+                                <h3 class="product__price">Harga: Rp.3000; ?></h3>
+                                <h3 class="product__stock">Stok: 11</h3>
+                                <button class="btn btn__add" id="btn-modal"><i class='bx bx-cart-add'></i></button>
+                            </div>
+                        </div>
+                        <!-- Card Slide end -->
+
+                        <!-- Modal Keranjang -->
+                        <div class="modal__pesan" id="modal-pesan">
+                            <!-- Modal Header -->
+                            <div class="modal__header">
+                                <h2>Pesan</h2>
+
+                                <div id="modal-close">
+                                    <i class="bx bx-x"></i>
+                                </div>
+                            </div>
+
+                            <!-- Modal Content -->
+                        </div>
+                        <!-- Modal Keranjang end -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="search" class="section container flex hidden">
+            <div class="search__bar">
+                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu...">
+            </div>
+
+            <hr>
+
+            <div class="product__content flex">
+                <div class="product__img flex">
+                    <img src="assets/img/product.png" alt="">
+                </div>
+
+                <div class="produk__data">
+                    <h3 class="product__name-data">Aqua 600ml</h3>
+                    <h3 class="product__stock-data">Stok: 12</h3>
+                    <h3 class="product__price-data">Harga: Rp.2.000</h3>
+                    <button class="btn btn__add add-search"><i class='bx bx-cart-add'></i></button>
+                </div>
+            </div>
+        </section>
+        <section id="cart" class="section container flex hidden">
+            <h2 class="section__title">Keranjang</h2>
+
+            <div class="product__content flex" id="cart-container">
+                <div class="checkbox__container flex">
+                    <input type="checkbox" name="" id="checkbox-cart" class="checkbox__cart" onchange="toggleBorder()">
+                </div>
+
+                <div class="product__img flex">
+                    <img src="assets/img/product.png" alt="">
+                </div>
+
+                <div class="produk__data flex">
+                    <h3 class="product__name-data">Aqua 600ml</h3>
+                    <h3 class="product__price-data">Harga: Rp.2.000</h3>
+                    <div class="kuantitas">
+                        <button class="btn btn__kuantitas">-</button>
+                        <input type="text" id="quantity" value="1" readonly>
+                        <button class="btn btn__kuantitas">+</button>
+                    </div>
+                </div>
+            </div>
+
+            <form class="checkout__container flex">
+                <div class="checkbox__container flex">
+                    <input type="checkbox" name="checkbox" id="checkbox-all" class="checkbox__cart" onchange="toggleBorder()">
+                    <label for="checkbox-all">Semua</label>
+                </div>
+                <div class="checkout__content flex">
+                    <h3 class="harga__checkout">Rp.-</h3>
+                    <button class="btn btn__checkout" id="total-barang">Beli(0)</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <!-- <section style="height: 200vh;"></section> -->
+
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
