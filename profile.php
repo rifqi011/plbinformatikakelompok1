@@ -1,7 +1,10 @@
 <?php
+session_start();
 include 'koneksi.php';
 $User = mysqli_query($connect, "SELECT * FROM pengunjung");
 $dataUser = mysqli_fetch_array($User);
+
+$sesion = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -33,14 +36,26 @@ $dataUser = mysqli_fetch_array($User);
     </div>
     <hr>
 
-    <ul class="profile__list">
+    <?php
+    if ($sesion) {
+    ?>
+        <ul class="profile__list">
+            <li class="profile__item">
+                <a class="profile__link" href=""><i class="bx bx-pencil"></i>Edit akun</a>
+            </li>
+            <li class="profile__item">
+                <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Log out</a>
+            </li>
+        </ul>
+    <?php
+    } else {
+    ?>
         <li class="profile__item">
-            <a class="profile__link" href=""><i class="bx bx-pencil"></i>Edit akun</a>
+            <a class="profile__link" href="login.php"><i class="bx bx-pencil"></i>Login</a>
         </li>
-        <li class="profile__item">
-            <a class="profile__link" href=""><i class="bx bx-log-out"></i>Log out</a>
-        </li>
-    </ul>
+    <?php
+    }
+    ?>
 
     <footer id="footer">
         <h2 style="display: flex; justify-content: center;">Developed by&nbsp;
