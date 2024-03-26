@@ -24,7 +24,7 @@ function signup($data)
 
     global $connect;
 
-    $nama        = strtolower(stripslashes($data['nama']));
+    $nama        = $data['nama'];
     $kelas       = $data['kelas'];
     $email       = $data['email'];
     $password    = mysqli_real_escape_string($connect, $data['password']);

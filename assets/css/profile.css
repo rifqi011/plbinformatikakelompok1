@@ -38,6 +38,10 @@ body {
     gap: 2rem;
 }
 
+.login__button {
+    padding: 1rem 8rem;
+}
+
 .profile__link {
     display: flex;
     gap: 5px;

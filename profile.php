@@ -1,10 +1,9 @@
 <?php
 session_start();
 include 'koneksi.php';
-$User = mysqli_query($connect, "SELECT * FROM pengunjung");
-$dataUser = mysqli_fetch_array($User);
-
 $sesion = $_SESSION['user'];
+$User = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$sesion'");
+$dataUser = mysqli_fetch_array($User);
 ?>
 
 <!DOCTYPE html>
@@ -27,31 +26,32 @@ $sesion = $_SESSION['user'];
     </header>
     <hr>
 
-    <div class="profile__content">
-        <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
-        <div class="profile__data">
-            <h2 class="nama"><?php echo $dataUser['nama']; ?></h2>
-            <p class="email"><?php echo $dataUser['email']; ?></p>
-        </div>
-    </div>
-    <hr>
-
     <?php
-    if ($sesion) {
+    if (isset($_SESSION['user'])) {
     ?>
+        <div class="profile__content">
+            <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
+            <div class="profile__data">
+                <h2 class="nama"><?php echo $dataUser['nama']; ?></h2>
+                <p class="email"><?php echo $dataUser['email']; ?></p>
+            </div>
+        </div>
+        <hr>
+
         <ul class="profile__list">
             <li class="profile__item">
                 <a class="profile__link" href=""><i class="bx bx-pencil"></i>Edit akun</a>
             </li>
             <li class="profile__item">
-                <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Log out</a>
+                <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Keluar</a>
             </li>
         </ul>
     <?php
     } else {
     ?>
-        <li class="profile__item">
-            <a class="profile__link" href="login.php"><i class="bx bx-pencil"></i>Login</a>
+        <h1 style="text-align: center;">Silahkan masuk terlebih dahulu</h1>
+        <li class="profile__item login__button">
+            <a class="profile__link flex" href="login.php"><i class="bx bx-pencil"></i>Masuk</a>
         </li>
     <?php
     }
