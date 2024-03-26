@@ -8,6 +8,12 @@ body {
 
 .login__header {
     padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile__header i {
+    font-size: var(--font-size-2);
 }
 
 .login__content {

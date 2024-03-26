@@ -31,11 +31,11 @@ function signup($data)
     $password2   = mysqli_real_escape_string($connect, $data['password2']);
 
     // Cek Username
-    $result = mysqli_query($connect, "SELECT nama FROM pengunjung WHERE nama = '$nama'");
+    $result = mysqli_query($connect, "SELECT email FROM pengunjung WHERE email = '$email'");
 
     if (mysqli_fetch_assoc($result)) {
         header('Location: ../signup.php');
-        $_SESSION['gagal'] = "Username Sudah terdaftar";
+        $_SESSION['gagal'] = "Email Sudah terdaftar";
         return false;
     }
 

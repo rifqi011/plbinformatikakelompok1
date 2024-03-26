@@ -40,7 +40,7 @@ $dataUser = mysqli_fetch_array($User);
 
         <ul class="profile__list">
             <li class="profile__item">
-                <a class="profile__link" href=""><i class="bx bx-pencil"></i>Edit akun</a>
+                <a class="profile__link" href="edit.php?email=<?php echo $sesion ?>"><i class="bx bx-pencil"></i>Edit akun</a>
             </li>
             <li class="profile__item">
                 <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Keluar</a>
@@ -77,6 +77,40 @@ $dataUser = mysqli_fetch_array($User);
             kelompokLink.href = 'kelompokdesktop.php';
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php
+    if (isset($_SESSION['sukses'])) {
+    ?>
+        <script>
+            Swal.fire({
+                position: "bottom-end",
+                icon: "success",
+                title: "<?php echo $_SESSION['sukses']; ?>",
+                showConfirmButton: false,
+                timer: 3000,
+
+            });
+        </script>
+    <?php
+        unset($_SESSION['sukses']); // Hapus sesi sukses setelah ditampilkan
+    }
+
+    if (isset($_SESSION['gagal'])) {
+    ?>
+        <script>
+            Swal.fire({
+                position: "bottom-end",
+                icon: "error",
+                title: "<?php echo $_SESSION['gagal']; ?>",
+                showConfirmButton: false,
+                timer: 3000,
+
+            });
+        </script>
+    <?php
+        unset($_SESSION['gagal']);
+    }
+    ?>
 </body>
 
 </html>
