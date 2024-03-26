@@ -37,7 +37,7 @@ include 'koneksi.php';
                         <a href="#" class="nav__link flex" data-section="cart"><i class='bx bx-cart'></i>Keranjang</a>
                     </li>
                 </ul>
-            </nav>gith
+            </nav>
             <?php
             $User = mysqli_query($connect, "SELECT * FROM pengunjung");
             $dataUser = mysqli_fetch_array($User);
