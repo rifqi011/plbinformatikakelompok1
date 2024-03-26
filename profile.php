@@ -18,7 +18,7 @@ $dataUser = mysqli_fetch_array($User);
 <body>
     <header id="header">
         <div class="profile__header flex">
-            <a href="/inforp5"><i class="bx bx-left-arrow-alt"></i></a>
+            <a href="/plbinformatikakelompok1"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Profil Saya</h1>
         </div>
     </header>
