@@ -189,37 +189,35 @@ include 'koneksi.php';
             <h2 class="section__title">Keranjang</h2>
 
             <?php
-            
-            $keranjang = mysqli_query($connect, "SELECT k.id AS idcart, k.idbarang ,k.jumlah , b.id , b.nama , b.foto ,b.hargajual FROM keranjang k , barang b  WHERE k.idbarang = b.id ORDER by k.id DESC");
-            if (mysqli_num_rows($keranjang) > 0) {
-
-                while ($cart = mysqli_fetch_array($keranjang)) {
-
+            if (!empty($_SESSION['cart'])) {
+                foreach ($_SESSION['cart'] as $cart => $val) {
             ?>
-                    <form class="product__content-cart flex shadow" id="cart-container-<?php echo $cart['idcart']; ?>">
+                    <form class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
                         <div class="checkbox__container flex">
-                            <input type="checkbox" id="<?php echo $cart['idcart']; ?>" name="<?php echo $cart['idcart']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
+                            <input type="checkbox" id="<?php echo $val['idcart']; ?>" name="<?php echo $val['idcart']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
                         </div>
-                        <label for="<?php echo $cart['idcart']; ?>">
+                        <label for="<?php echo $val['idcart']; ?>">
                             <div class="product__img flex">
-                                <img src="assets/img/barang/<?php echo $cart['foto']; ?>" alt="">
+                                <img src="assets/img/barang/<?php echo $val['foto']; ?>" alt="">
                             </div>
                         </label>
 
                         <div class="produk__data flex">
-                            <label for="<?php echo $cart['idcart']; ?>">
-                                <h3 class="product__name-data"><?php echo $cart['nama']; ?></h3>
-                                <h3 class="product__price-data" id="harga-<?php echo $cart['idcart']; ?>">Rp.<?php echo $cart['hargajual']; ?></h3>
+                            <label for="<?php echo $val['idcart']; ?>">
+                                <h3 class="product__name-data"><?php echo $val['idbarang']; ?></h3>
+                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $val['hargajual']; ?></h3>
                             </label>
                             <div class="kuantitas flex kuantitas__cart">
-                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $cart['idcart']; ?>" onclick="kurangBarang(<?php echo $cart['idcart']; ?>)">-</div>
-                                <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $cart['idcart']; ?>" class="kuantitas__input" value="<?php echo $cart['jumlah']; ?>" readonly>
-                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $cart['idcart']; ?>" onclick="tambahBarang(<?php echo $cart['idcart']; ?>)">+</div>
+                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $val['idcart']; ?>" onclick="kurangBarang(<?php echo $cart['idcart']; ?>)">-</div>
+                                <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $val['idcart']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
+                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $val['idcart']; ?>" onclick="tambahBarang(<?php echo $cart['idcart']; ?>)">+</div>
                             </div>
                         </div>
                     </form>
             <?php
-                }
+                };
+            } else {
+                echo 'belum';
             }
             ?>
 
