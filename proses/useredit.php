@@ -43,8 +43,7 @@ function simpan($data)
 }
 
 if (isset($_POST['simpan'])) {
-    if (simpan($_POST) > 0) {
-       
+    if (simpan($_POST)) {
         header('Location: ../profile.php');
         $_SESSION['sukses'] = "Data Berhasil di Ubah";
     } else {

@@ -5,6 +5,10 @@ $email = $_GET['email'];
 
 $sql = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
 $data = mysqli_fetch_array($sql);
+
+if(!isset($_SESSION['user'])) {
+    header('Location: index.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +33,6 @@ $data = mysqli_fetch_array($sql);
     <hr>
 
     <section class="login__content flex">
-        <h1 class="headline">Selamat datang </h1>
         <form method="post" action="proses/useredit.php" class="login__form flex">
             <div class="login__group">
                 <label for="nama">Masukan Nama</label>

@@ -228,7 +228,7 @@ include 'koneksi.php';
             <form class="checkout__container shadow">
                 <div class="checkout__content">
                     <h3 class="harga__checkout"></h3>
-                    <button class="btn btn__checkout">Beli Barang</button>
+                    <button class="btn btn__checkout" type="submit" name="beli">Beli Barang</button>
                     <h3 id="total-barang"></h3>
                 </div>
             </form>
