@@ -189,9 +189,7 @@ include 'koneksi.php';
             <h2 class="section__title">Keranjang</h2>
 
             <?php
-            $totalHarga = 0; // Inisialisasi total harga
-            $jumlahBarang = 0; // Inisialisasi jumlah barang
-
+            
             $keranjang = mysqli_query($connect, "SELECT k.id AS idcart, k.idbarang ,k.jumlah , b.id , b.nama , b.foto ,b.hargajual FROM keranjang k , barang b  WHERE k.idbarang = b.id ORDER by k.id DESC");
             if (mysqli_num_rows($keranjang) > 0) {
 
