@@ -12,7 +12,7 @@ body {
     gap: 1rem;
 }
 
-.profile__header i {
+.login__header i {
     font-size: var(--font-size-2);
 }
 

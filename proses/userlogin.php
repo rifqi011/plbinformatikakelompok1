@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
         if (password_verify($password, $row['password'])) {
             header("Location: ../index.php");
             $_SESSION['user'] = $email;
-            $_SESSION['sukses'] = "Anda berhasil masuk";
+            $_SESSION['sukses'] = "Selamat Datang ".$row['nama'];
             exit;
         }
         else {
