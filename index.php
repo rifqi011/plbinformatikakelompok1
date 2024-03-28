@@ -178,24 +178,16 @@ include 'koneksi.php';
 
         <!-- section pencarian -->
         <section id="search" class="section container flex hidden">
-            <div class="search__bar">
+            <form action="" method="post" class="search__bar">
                 <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu...">
-            </div>
+            </form>
 
             <hr>
 
-            <div class="product__content flex shadow">
-                <div class="product__img flex">
-                    <img src="assets/img/barang/aqua.png" alt="">
-                </div>
+            <div id="product-search">
 
-                <div class="produk__data">
-                    <h3 class="product__name-data">Aqua 600ml</h3>
-                    <h3 class="product__stock-data">Stok: 12</h3>
-                    <h3 class="product__price-data">Harga: Rp.2.000</h3>
-                    <button class="btn btn__add" id="add-search" data-target="modal-pesan-<?php echo $brg['id']; ?>"><i class='bx bx-cart-add'></i></button>
-                </div>
             </div>
+
         </section>
         <!-- section pencarian -->
 

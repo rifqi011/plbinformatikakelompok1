@@ -244,6 +244,7 @@ body {
     gap: 1rem;
     border-radius: 15px;
     padding: 1rem;
+    margin-block: 1rem;
 }
 .product__name-data {
     font-size: var(--font-size-15);

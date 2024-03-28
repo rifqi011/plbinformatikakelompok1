@@ -266,3 +266,30 @@ function updateTotal() {
     totalBarangElem.textContent = "Total Barang: " + totalBarang;
 }
 updateTotal();
+
+// ---------- Live Searching ---------- //
+const keyword = document.getElementById("search-input");
+const product = document.getElementById("product-search");
+
+// Tampilkan pesan "Silahkan cari" jika input kosong
+if (keyword.value.trim() === '') {
+    product.innerHTML = '<p>Silahkan cari</p>';
+}
+
+// tambah event ketika keyword ditulis
+keyword.addEventListener("keyup", () => {
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            if (keyword.value.trim() === '') {
+                product.innerHTML = '<p>Silahkan cari</p>';
+            } else {
+                product.innerHTML = xhr.responseText;
+            }
+        }
+    };
+
+    xhr.open("GET", "assets/ajax/data.php?keyword=" + keyword.value, true);
+    xhr.send();
+});
