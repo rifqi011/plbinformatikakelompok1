@@ -222,7 +222,7 @@ include 'koneksi.php';
                             <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
                             <div class="flex menu__cart">
                                 <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
-                                <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
+                                <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input kuantitas__keranjang" data-harga="<?php echo $row['hargajual']; ?>" value="<?php echo $val['jumlah']; ?>" readonly>
                                 <div class="btn btn__kuantitas" onclick="cartTambahBarang(<?php echo $val['idbarang']; ?>)">+</div>
                             </div>
                         </div>
@@ -236,7 +236,7 @@ include 'koneksi.php';
 
             <form class="checkout__container shadow">
                 <div class="checkout__content">
-                    <h3 class="harga__checkout"></h3>
+                    <h3 id="harga-checkout" class="harga__checkout"></h3>
                     <button class="btn btn__checkout" type="submit" name="beli">Beli Barang</button>
                     <h3 id="total-barang"></h3>
                 </div>
