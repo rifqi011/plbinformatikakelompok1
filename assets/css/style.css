@@ -288,9 +288,8 @@ input.checkbox__cart {
     width: 100%;
 }
 
-.kuantitas__cart {
-    justify-content: left;
-    gap: 2rem;
+.menu__cart {
+    justify-content: space-between;
 }
 
 .checkout__content {

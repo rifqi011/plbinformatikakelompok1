@@ -206,12 +206,13 @@ include 'koneksi.php';
                 foreach ($_SESSION['cart'] as $cart => $val) {
                     $sql = mysqli_query($connect, "SELECT * FROM barang WHERE id = '$val[idbarang]'");
                     $row = mysqli_fetch_array($sql);
-
             ?>
                     <form class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
                         <!-- <div class="checkbox__container flex">
                             <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
                         </div> -->
+                        <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang'];?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
+
                         <div class="product__img flex">
                             <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
                         </div>
@@ -219,17 +220,15 @@ include 'koneksi.php';
                         <div class="produk__data flex">
                             <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
                             <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
-                            <div class="kuantitas flex kuantitas__cart">
-                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $val['idcart']; ?>" onclick="kurangBarang(<?php echo $cart['idcart']; ?>)">-</div>
+                            <div class="flex menu__cart">
                                 <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $val['idcart']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
-                                <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $val['idcart']; ?>" onclick="tambahBarang(<?php echo $cart['idcart']; ?>)">+</div>
                             </div>
                         </div>
                     </form>
             <?php
-                };
+                }
             } else {
-                echo 'belum';
+                include 'sectionalt/cartimg.php';
             }
             ?>
 
