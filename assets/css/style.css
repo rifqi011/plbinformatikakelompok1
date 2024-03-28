@@ -266,6 +266,7 @@ body {
     padding: 1rem;
     border-radius: 15px;
     gap: 0.5rem;
+    margin-block: 1rem;
 }
 
 input.checkbox__cart {

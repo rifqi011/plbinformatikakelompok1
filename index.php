@@ -207,40 +207,48 @@ include 'koneksi.php';
                     $sql = mysqli_query($connect, "SELECT * FROM barang WHERE id = '$val[idbarang]'");
                     $row = mysqli_fetch_array($sql);
             ?>
-                    <form class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
-                        <!-- <div class="checkbox__container flex">
-                <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
-            </div> -->
+                    <form action="proses/checkout.php" method="post">
+                        <div class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
+                            <div class="product__img flex">
+                                <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang']; ?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
+                                <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
+                            </div>
 
-                        <div class="product__img flex">
-                            <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang']; ?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
-                            <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
-                        </div>
-
-                        <div class="produk__data flex">
-                            <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
-                            <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
-                            <div class="flex menu__cart">
-                                <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
-                                <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input kuantitas__keranjang" data-harga="<?php echo $row['hargajual']; ?>" value="<?php echo $val['jumlah']; ?>" readonly>
-                                <div class="btn btn__kuantitas" onclick="cartTambahBarang(<?php echo $val['idbarang']; ?>)">+</div>
+                            <div class="produk__data flex">
+                                <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
+                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
+                                <div class="flex menu__cart">
+                                    <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
+                                    <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input kuantitas__keranjang" data-harga="<?php echo $row['hargajual']; ?>" value="<?php echo $val['jumlah']; ?>" readonly>
+                                    <div class="btn btn__kuantitas" onclick="cartTambahBarang(<?php echo $val['idbarang']; ?>)">+</div>
+                                </div>
                             </div>
                         </div>
-                    </form>
-            <?php
+                <?php
                 }
             } else {
                 include 'sectionalt/cartimg.php';
             }
-            ?>
+                ?>
 
-            <form class="checkout__container shadow">
-                <div class="checkout__content">
-                    <h3 id="harga-checkout" class="harga__checkout"></h3>
-                    <button class="btn btn__checkout" type="submit" name="beli">Beli Barang</button>
-                    <h3 id="total-barang"></h3>
+                <div class="checkout__container shadow">
+                    <div class="checkout__content">
+                        <h3 id="harga-checkout" class="harga__checkout"></h3>
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                        ?>
+                            <button class="btn btn__checkout" type="submit" name="beli">Beli Barang</button>
+                        <?php
+                        } else {
+                        ?>
+                            <a href="login.php" class="btn btn__checkout" type="submit" name="beli">Beli Barang</a>
+                        <?php
+                        }
+                        ?>
+                        <h3 id="total-barang"></h3>
+                    </div>
                 </div>
-            </form>
+                    </form>
         </section>
     </main>
 
