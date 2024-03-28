@@ -1,4 +1,4 @@
-<!-- Include Koneksi Database -->
+<!-- Include Koneksi Database dan Mulai Sesi -->
 <?php
 @session_start();
 include 'koneksi.php';
@@ -18,13 +18,14 @@ include 'koneksi.php';
 </head>
 
 <body>
-    <!-- Header -->
+    <!-- Header Top -->
     <header id="header" class="container">
         <div class="nav__container flex">
             <div class="logo">
                 <h1>Lorem, ipsum.</h1>
             </div>
 
+            <!-- Navbar Bottom -->
             <nav id="navbar">
                 <ul class="nav__list flex">
                     <li class="nav__item">
@@ -38,6 +39,8 @@ include 'koneksi.php';
                     </li>
                 </ul>
             </nav>
+
+            <!-- query Database User -->
             <?php
             $User = mysqli_query($connect, "SELECT * FROM pengunjung");
             $dataUser = mysqli_fetch_array($User);
@@ -55,42 +58,49 @@ include 'koneksi.php';
             <!-- Home Banner -->
             <div class="home__banner swiper homeSwiper">
                 <div class="swiper-wrapper home__wrapper">
-                    <!-- Ambil Data Banner -->
+
+                    <!-- query Data Banner -->
                     <?php
                     $banner = mysqli_query($connect, "SELECT * FROM banner");
                     while ($bnr = mysqli_fetch_array($banner)) {
                     ?>
+                        <!-- Swiper -->
                         <div class="swiper-slide home__slide">
                             <a href="">
-                                <!-- Banner IMG -->
                                 <img src="assets/img/banner/<?php echo $bnr['foto']; ?>.png" alt="">
                             </a>
                         </div>
                     <?php
                     }
                     ?>
-                    <!-- Ambil Data Banner end -->
+
                 </div>
             </div>
 
-            <!-- Card Slide -->
+            <!-- Card Section -->
             <div class="card__section">
+
                 <!-- Pisahkan Kategori -->
                 <?php
                 $kategori = mysqli_query($connect, "SELECT kategori FROM barang GROUP BY kategori");
                 while ($kat = mysqli_fetch_array($kategori)) {
                 ?>
+
                     <h2 class="section__title"><?php echo $kat['kategori'] ?></h2>
 
+                    <!-- Card Swiper -->
                     <div class="card__swiper swiper cardSwiper" id="card">
                         <div class="swiper-wrapper flex">
-                            <!-- Ambil Data Barang -->
+
+                            <!-- query Data Barang -->
                             <?php
                             $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]'");
                             while ($brg = mysqli_fetch_array($barang)) {
                             ?>
+
                                 <!-- Card Slide -->
                                 <div class="swiper-slide card__slide flex shadow">
+                                    <!-- Data Card -->
                                     <div class="card__slide__img">
                                         <img src="assets/img/barang/<?php echo $brg['foto']; ?>" alt="card">
                                     </div>
@@ -101,18 +111,21 @@ include 'koneksi.php';
                                         <button class="btn btn__add" data-target="modal-pesan-<?php echo $brg['id']; ?>"><i class='bx bx-cart-add'></i></button>
                                     </div>
                                 </div>
+
                             <?php
                             }
                             ?>
-                            <!-- Ambil Data Barang end -->
+
                         </div>
                     </div>
 
                     <!-- Modal Keranjang -->
+                    <!-- query Data Barang -->
                     <?php
                     $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]'");
                     while ($brg = mysqli_fetch_array($barang)) {
                     ?>
+                    
                         <form action="proses/keranjang.php" method="post" class="modal__pesan shadow" id="modal-pesan-<?php echo $brg['id']; ?>">
                             <!-- Modal Content -->
                             <div class="modal__content">
@@ -196,20 +209,16 @@ include 'koneksi.php';
 
             ?>
                     <form class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
-                        <div class="checkbox__container flex">
-                            <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idcbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
+                        <!-- <div class="checkbox__container flex">
+                            <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
+                        </div> -->
+                        <div class="product__img flex">
+                            <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
                         </div>
-                        <label for="<?php echo $val['idbarang']; ?>">
-                            <div class="product__img flex">
-                                <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
-                            </div>
-                        </label>
 
                         <div class="produk__data flex">
-                            <label for="<?php echo $val['idbarang']; ?>">
-                                <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
-                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
-                            </label>
+                            <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
+                            <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
                             <div class="kuantitas flex kuantitas__cart">
                                 <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $val['idcart']; ?>" onclick="kurangBarang(<?php echo $cart['idcart']; ?>)">-</div>
                                 <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $val['idcart']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
