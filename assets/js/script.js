@@ -196,7 +196,13 @@ closeButtonList.forEach((button) => {
 function tambahBarang(idbarang) {
     const kuantitasInput = document.getElementById(`kuantitas-${idbarang}`);
     const currentKuantitas = parseInt(kuantitasInput.value);
-    kuantitasInput.value = currentKuantitas + 1;
+    const stok = parseInt(
+        document.getElementById(`stok-${idbarang}`).getAttribute("data-stok")
+    );
+
+    if (currentKuantitas < stok) {
+        kuantitasInput.value = currentKuantitas + 1;
+    }
 }
 
 function kurangBarang(idbarang) {
@@ -205,15 +211,19 @@ function kurangBarang(idbarang) {
     if (currentKuantitas > 1) {
         kuantitasInput.value = currentKuantitas - 1;
     }
-    console.log(kuantitasInput);
 }
-
 function cartTambahBarang(idbarang) {
     const kuantitasInput = document.getElementById(
         `cart-kuantitas-${idbarang}`
     );
     const currentKuantitas = parseInt(kuantitasInput.value);
-    kuantitasInput.value = currentKuantitas + 1;
+    const stok = parseInt(
+        document.getElementById(`stok-${idbarang}`).getAttribute("data-stok")
+    );
+
+    if (currentKuantitas < stok) {
+        kuantitasInput.value = currentKuantitas + 1;
+    }
     updateTotal();
 }
 
