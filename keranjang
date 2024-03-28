@@ -23,7 +23,7 @@
                             </label>
                             <div class="kuantitas flex kuantitas__cart">
                                 <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $cart['idcart']; ?>" onclick="kurangBarang(<?php echo $cart['idcart']; ?>)">-</div>
-                                <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $cart['idcart']; ?>" class="kuantitas__input" value="<?php echo $cart['jumlah']; ?>" readonly>
+                                <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $cart['id']; ?>" class="kuantitas__input" value="<?php echo $cart['jumlah']; ?>" readonly>
                                 <div name="edit" type="submit" class="btn btn__kuantitas" data-target="edit-jumlah-<?php echo $cart['idcart']; ?>" onclick="tambahBarang(<?php echo $cart['idcart']; ?>)">+</div>
                             </div>
                         </div>

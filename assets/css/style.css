@@ -231,6 +231,7 @@ body {
 
 .product__img {
     align-items: center;
+    gap: 0.5rem;
 }
 
 .product__img img {

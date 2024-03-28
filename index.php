@@ -125,7 +125,7 @@ include 'koneksi.php';
                     $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]'");
                     while ($brg = mysqli_fetch_array($barang)) {
                     ?>
-                    
+
                         <form action="proses/keranjang.php" method="post" class="modal__pesan shadow" id="modal-pesan-<?php echo $brg['id']; ?>">
                             <!-- Modal Content -->
                             <div class="modal__content">
@@ -209,11 +209,11 @@ include 'koneksi.php';
             ?>
                     <form class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
                         <!-- <div class="checkbox__container flex">
-                            <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
-                        </div> -->
-                        <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang'];?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
+                <input type="checkbox" id="<?php echo $val['idbarang']; ?>" name="<?php echo $val['idbarang']; ?>" checked id="checkbox-cart" class="checkbox__cart" value="1">
+            </div> -->
 
                         <div class="product__img flex">
+                            <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang']; ?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
                             <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
                         </div>
 
@@ -221,7 +221,9 @@ include 'koneksi.php';
                             <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
                             <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
                             <div class="flex menu__cart">
-                                <input type="text" name="id<?php echo $cart['id']; ?>" id="kuantitas-<?php echo $val['idcart']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
+                                <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
+                                <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input" value="<?php echo $val['jumlah']; ?>" readonly>
+                                <div class="btn btn__kuantitas" onclick="cartTambahBarang(<?php echo $val['idbarang']; ?>)">+</div>
                             </div>
                         </div>
                     </form>
