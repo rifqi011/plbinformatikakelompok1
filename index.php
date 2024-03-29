@@ -185,7 +185,7 @@ include 'koneksi.php';
             <hr>
 
             <div id="product-search">
-
+                <h1>Cari Sesuatu</h1>
             </div>
 
         </section>
