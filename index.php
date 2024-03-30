@@ -58,7 +58,7 @@ $idpengunjung = $pengunjung['id'];
             <a href="profile.php" class="profile">
                 <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
                 <?php
-                if(!$email) {
+                if (!$email) {
                     echo "<p>Tamu</p>";
                 } else {
                     echo $pengunjung['nama'];
@@ -206,7 +206,6 @@ $idpengunjung = $pengunjung['id'];
             <div id="product-search">
                 <h1>Cari Sesuatu</h1>
             </div>
-
         </section>
         <!-- section pencarian -->
 
@@ -272,7 +271,7 @@ $idpengunjung = $pengunjung['id'];
 
                 <?php
                 $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung'");
-                
+
                 while ($buy = mysqli_fetch_array($pembelian)) {
 
                     $penjualan = mysqli_query($connect, "SELECT COUNT(id) as jenis, SUM(jumlah) as jumlah, SUM(jumlah*harga) as totalharga FROM keranjang WHERE idtransaksi = '$buy[id]'");
@@ -285,8 +284,8 @@ $idpengunjung = $pengunjung['id'];
                                 <p>1124546574</p>
                             </div>
                             <div class="transaction__right">
-                                <p><?php echo $dataPenjualan['jenis'];?> Menu</p>
-                                <p><?php echo $dataPenjualan['jumlah'];?> Item</p>
+                                <p><?php echo $dataPenjualan['jenis']; ?> Menu</p>
+                                <p><?php echo $dataPenjualan['jumlah']; ?> Item</p>
                             </div>
                         </div>
 
@@ -294,13 +293,15 @@ $idpengunjung = $pengunjung['id'];
 
                         <div class="transaction__content flex">
                             <p class="price">Rp.<?php echo number_format($dataPenjualan['totalharga']); ?></p>
-                            <p class="status"><?php 
-                            if($dataTransaksi['status'] == 0) {
-                                echo "Diproses";
-                            } elseif($dataTransaksi['status'] == 0) {
-                                echo "Selesai";
-                            }
-                            ?></p>
+                            <p class="status">
+                                <?php
+                                if ($dataTransaksi['status'] == 0) {
+                                    echo "Diproses";
+                                } elseif ($dataTransaksi['status'] == 0) {
+                                    echo "Selesai";
+                                }
+                                ?>
+                            </p>
                         </div>
                     </div>
             <?php
