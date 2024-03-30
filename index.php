@@ -2,6 +2,12 @@
 <?php
 @session_start();
 include 'koneksi.php';
+$email = $_SESSION['user'];
+$User = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
+
+$pengunjung = mysqli_fetch_array($User);
+
+$idpengunjung = $pengunjung['id'];
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +42,9 @@ include 'koneksi.php';
                     </li>
                     <li class="nav__item">
                         <a href="#" class="nav__link flex" data-section="cart"><i class='bx bx-cart'></i>Keranjang</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link flex" data-section="buy"><i class='bx bx-notepad'></i>Pembelian</a>
                     </li>
                 </ul>
             </nav>
@@ -243,6 +252,44 @@ include 'koneksi.php';
                     </div>
                 </div>
                     </form>
+        </section>
+
+        <!-- Transaction Section -->
+        <section id="buy" class="section container flex hidden">
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+                <h2 class="section__title">Pembelian</h2>
+
+                <?php
+                $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung'");
+                $dataTransaksi = mysqli_fetch_array($pembelian);
+                while ($buy = mysqli_fetch_array($pembelian)) {
+                ?>
+                    <div class="transaction__card flex shadow">
+                        <div class="transaction__content flex">
+                            <div class="transaction__left">
+                                <p class="deliverydate"><?php echo $dataTransaksi['tanggal'] . " " . $dataTransaksi['jam']; ?></p>
+                            </div>
+                            <div class="transaction__right">
+                                <p>3 Menu</p>
+                                <p>4 Item</p>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <div class="transaction__content flex">
+                            <p class="price">Rp.50.000</p>
+                            <p class="status">Diproses</p>
+                        </div>
+                    </div>
+            <?php
+                }
+            } else {
+                echo "Login untuk meilhat";
+            }
+            ?>
         </section>
     </main>
 

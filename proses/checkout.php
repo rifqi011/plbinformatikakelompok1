@@ -39,4 +39,4 @@ foreach ($_SESSION['cart'] as $cart => $val) {
 
 unset($_SESSION['cart']);
 header('Location: ../index.php');
-$_SESSION['sukses'] = "Pembelian berhasil. silahkan tunggu barang";
+$_SESSION['sukses'] = "Pembelian berhasil. silahkan pantau di menu pembelian";

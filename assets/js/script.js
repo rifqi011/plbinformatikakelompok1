@@ -22,6 +22,10 @@ navLinks.forEach((link) => {
                         icon.classList.remove("bxs-cart");
                         icon.classList.add("bx-cart");
                         break;
+                    case "bx bxs-notepad":
+                        icon.classList.remove("bxs-notepad");
+                        icon.classList.add("bx-notepad");
+                        break;
                 }
             }
         });
@@ -46,6 +50,10 @@ navLinks.forEach((link) => {
                     case "bx bx-cart":
                         icon.classList.remove("bx-cart");
                         icon.classList.add("bxs-cart");
+                        break;
+                    case "bx bx-notepad":
+                        icon.classList.remove("bx-notepad");
+                        icon.classList.add("bxs-notepad");
                         break;
                 }
             }
