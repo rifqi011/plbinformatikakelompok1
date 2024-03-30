@@ -84,9 +84,7 @@ $idpengunjung = $pengunjung['id'];
                     ?>
                         <!-- Swiper -->
                         <div class="swiper-slide home__slide">
-                            <a href="">
-                                <img src="assets/img/banner/<?php echo $bnr['foto']; ?>.png" alt="">
-                            </a>
+                            <img src="assets/img/banner/<?php echo $bnr['foto']; ?>.png" alt="">
                         </div>
                     <?php
                     }
@@ -112,7 +110,7 @@ $idpengunjung = $pengunjung['id'];
 
                             <!-- query Data Barang -->
                             <?php
-                            $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]'");
+                            $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]' ");
                             while ($brg = mysqli_fetch_array($barang)) {
                             ?>
 
@@ -126,7 +124,9 @@ $idpengunjung = $pengunjung['id'];
                                         <h3 class="product__name"><?php echo $brg['nama']; ?></h3>
                                         <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual']); ?></h3>
                                         <h3 class="product__stock">Stok: <?php echo $brg['stok']; ?></h3>
-                                        <button class="btn btn__add" data-target="modal-pesan-<?php echo $brg['id']; ?>"><i class='bx bx-cart-add'></i></button>
+                                        <button class="btn btn__add" 
+                                        <?php if($brg['stok']>0) {?>data-target="modal-pesan-<?php echo $brg['id']; }?>"
+                                        ><i class='bx bx-cart-add'></i></button>
                                     </div>
                                 </div>
 
@@ -270,7 +270,7 @@ $idpengunjung = $pengunjung['id'];
                 <h2 class="section__title">Pembelian</h2>
 
                 <?php
-                $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung'");
+                $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung' ORDER by id DESC");
 
                 while ($buy = mysqli_fetch_array($pembelian)) {
 

@@ -27,6 +27,8 @@ if (isset($_POST['beli'])) {
 foreach ($_SESSION['cart'] as $cart => $val) {
     $jumlah = 'id' . $val['idbarang'];
     $jml = $_POST[$jumlah];
+
+    
     $sql = "INSERT INTO keranjang SET 
     idtransaksi = $idtransaksi,
     idbarang = $val[idbarang],

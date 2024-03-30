@@ -40,7 +40,7 @@ $dataUser = mysqli_fetch_array($User);
 
         <ul class="profile__list">
             <li class="profile__item">
-                <a class="profile__link" href="edit.php?email=<?php echo $sesion ?>"><i class="bx bx-pencil"></i>Edit akun</a>
+                <a class="profile__link" href="edit.php"><i class="bx bx-pencil"></i>Edit akun</a>
             </li>
             <li class="profile__item">
                 <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Keluar</a>
