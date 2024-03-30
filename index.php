@@ -55,7 +55,16 @@ $idpengunjung = $pengunjung['id'];
             $dataUser = mysqli_fetch_array($User);
             ?>
 
-            <a href="profile.php"><img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img"></a>
+            <a href="profile.php" class="profile">
+                <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
+                <?php
+                if(!$email) {
+                    echo "<p>Tamu</p>";
+                } else {
+                    echo $pengunjung['nama'];
+                }
+                ?>
+            </a>
         </div>
     </header>
     <!-- Header end -->
@@ -263,25 +272,35 @@ $idpengunjung = $pengunjung['id'];
 
                 <?php
                 $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung'");
-                $dataTransaksi = mysqli_fetch_array($pembelian);
+                
                 while ($buy = mysqli_fetch_array($pembelian)) {
+
+                    $penjualan = mysqli_query($connect, "SELECT COUNT(id) as jenis, SUM(jumlah) as jumlah, SUM(jumlah*harga) as totalharga FROM keranjang WHERE idtransaksi = '$buy[id]'");
+                    $dataPenjualan = mysqli_fetch_array($penjualan);
                 ?>
                     <div class="transaction__card flex shadow">
                         <div class="transaction__content flex">
                             <div class="transaction__left">
-                                <p class="deliverydate"><?php echo $dataTransaksi['tanggal'] . " " . $dataTransaksi['jam']; ?></p>
+                                <p class="deliverydate"><?php echo $buy['tanggal'] . " " . $buy['jam']; ?></p>
+                                <p>1124546574</p>
                             </div>
                             <div class="transaction__right">
-                                <p>3 Menu</p>
-                                <p>4 Item</p>
+                                <p><?php echo $dataPenjualan['jenis'];?> Menu</p>
+                                <p><?php echo $dataPenjualan['jumlah'];?> Item</p>
                             </div>
                         </div>
 
                         <hr>
 
                         <div class="transaction__content flex">
-                            <p class="price">Rp.50.000</p>
-                            <p class="status">Diproses</p>
+                            <p class="price">Rp.<?php echo number_format($dataPenjualan['totalharga']); ?></p>
+                            <p class="status"><?php 
+                            if($dataTransaksi['status'] == 0) {
+                                echo "Diproses";
+                            } elseif($dataTransaksi['status'] == 0) {
+                                echo "Selesai";
+                            }
+                            ?></p>
                         </div>
                     </div>
             <?php
