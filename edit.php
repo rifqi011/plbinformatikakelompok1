@@ -1,7 +1,7 @@
 <?php
 @session_start();
 include 'koneksi.php'; 
-$email = $_GET['email'];
+$email = $_SESSION['user'];
 
 $sql = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
 $data = mysqli_fetch_array($sql);
@@ -42,6 +42,7 @@ if(!isset($_SESSION['user'])) {
                 <label for="kelas">Masukan Kelas</label>
                 <input autocomplete="off" type="text" name="kelas" id="kelas" value="<?php echo $data['kelas']?>">
             </div>
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
             <button class="btn btn__login" type="submit" name="simpan">Simpan</button>
         </form>
     </section>
