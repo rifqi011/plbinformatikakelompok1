@@ -2,7 +2,7 @@
 @session_start();
 include 'koneksi.php';
 
-if(isset($_SESSION['user'])) {
+if (isset($_SESSION['user'])) {
     header('Location: index.php');
 }
 ?>
@@ -36,7 +36,7 @@ if(isset($_SESSION['user'])) {
         <form action="proses/userlogin.php" class="login__form flex" method="post">
             <div class="login__group">
                 <label for="email">Masukan Email</label>
-                <input autocomplete="off" type="email" name="email" id="email" required>
+                <input autocomplete="off" type="email" name="email" id="email" required autofocus>
             </div>
             <div class="login__group">
                 <label for="password">Masukan Password</label>

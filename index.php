@@ -149,6 +149,7 @@ include 'koneksi.php';
 
                                     <!-- ID Barang -->
                                     <input type="hidden" name="idbarang" value="<?php echo $brg['id']; ?>">
+                                    <input type="hidden" name="hargajual" value="<?php echo $brg['hargajual']; ?>">
 
                                     <!-- Tambahkan tombol tambah dan kurang barang -->
                                     <div class="kuantitas__modal flex">
@@ -209,7 +210,7 @@ include 'koneksi.php';
 
                             <div class="produk__data flex">
                                 <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
-                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $row['hargajual']; ?></h3>
+                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $val['hargajual']; ?></h3>
                                 <div class="flex menu__cart">
                                     <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
                                     <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input kuantitas__keranjang" data-harga="<?php echo $row['hargajual']; ?>" value="<?php echo $val['jumlah']; ?>" readonly>

@@ -12,10 +12,12 @@ $jam        = date('H:i:s');
 if (isset($_POST['tambahkeranjang'])) {
     $jumlah     = $_POST['jumlah'];
     $idbarang   = $_POST['idbarang'];
+    $harga      = $_POST['hargajual'];
 
     $_SESSION['cart'][$idbarang] = [
         'idbarang' => $idbarang,
-        'jumlah'    => $jumlah
+        'jumlah'    => $jumlah,
+        'hargajual' => $harga
     ];
 
     header('Location: ../index.php');

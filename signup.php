@@ -24,7 +24,7 @@ include 'koneksi.php'; ?>
         <form method="post" action="proses/usersignup.php" class="login__form flex">
             <div class="login__group">
                 <label for="nama">Masukan Nama</label>
-                <input autocomplete="off" type="text" name="nama" id="nama" required>
+                <input autocomplete="off" type="text" name="nama" id="nama" required autofocus>
             </div>
             <div class="login__group">
                 <label for="kelas">Masukan Kelas</label>

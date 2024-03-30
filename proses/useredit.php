@@ -20,7 +20,6 @@ include '../koneksi.php';
 // if($query) {
 //     $_SESSION['sukses'] = "Data Berhasil di Ubah";
 //     header('Location: ../profile.php');
-       
 
 // }
 
