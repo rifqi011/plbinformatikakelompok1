@@ -35,5 +35,8 @@ foreach ($_SESSION['cart'] as $cart => $val) {
     ";
     
     $query = mysqli_query($connect, $sql);
-    
 }
+
+unset($_SESSION['cart']);
+header('Location: ../index.php');
+$_SESSION['sukses'] = "Pembelian berhasil. silahkan tunggu barang";
