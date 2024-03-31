@@ -1,0 +1,73 @@
+@import url(variable.css);
+
+body {
+    background-color: var(--white-color);
+    overflow-x: hidden;
+    font-family: var(--main-font);
+}
+
+.search__header {
+    padding: 1rem;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search__header i {
+    font-size: var(--font-size-2);
+}
+
+.search__img {
+    width: 70%;
+    padding: 1rem;
+    margin-inline: auto;
+}
+
+.search__body {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.search__data p {
+    font-size: 1.3rem;
+    font-family: var(--sans-font);
+    font-weight: 650;
+}
+
+.kuantitas {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.kuantitas__input {
+    width: calc(50px + .5rem);
+    text-align: center;
+    border: 2px solid var(--dark-green-color);
+    padding: 0.4rem;
+    border-radius: .3rem;
+}
+
+.btn__kuantitas {
+    color: var(--white-color);
+    background-color: var(--red-color);
+    border: none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+}
+
+.btn__checkout {
+    background-color: var(--dark-green-color);
+    font-size: var(--font-size-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white-color);
+    padding: 0.5rem;
+    border-radius: .5rem;
+    grid-area: btn__checkout;
+}

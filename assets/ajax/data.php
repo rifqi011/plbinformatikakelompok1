@@ -26,7 +26,17 @@ if (empty($keyword)) {
                     <h3 class="product__stock-data">Stok: <?php echo $row['stok']; ?></h3>
                     <h3 class="product__price-data">Harga: Rp.<?php echo number_format($row['hargajual']); ?></h3>
                     <!-- Tambahkan atribut data-target untuk menentukan modal yang akan ditampilkan -->
+                    <?php
+                    if($row['stok'] > 0) {
+                    ?>
+                    <a href="search.php?id=<?php echo $row['id']; ?>"><button class="btn btn__add btn__add-search"><i class='bx bx-cart-add'></i></button></a>
+                    <?php
+                    } else {
+                    ?>
                     <button class="btn btn__add btn__add-search"><i class='bx bx-cart-add'></i></button>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
 <?php
