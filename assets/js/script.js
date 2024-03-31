@@ -220,6 +220,7 @@ function kurangBarang(idbarang) {
         kuantitasInput.value = currentKuantitas - 1;
     }
 }
+
 function cartTambahBarang(idbarang) {
     const kuantitasInput = document.getElementById(
         `cart-kuantitas-${idbarang}`
