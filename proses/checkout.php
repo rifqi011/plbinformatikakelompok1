@@ -10,6 +10,7 @@ $jam        = date('H:i:s');
 $sql = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
 $row = mysqli_fetch_array($sql);
 $idpengunjung = $row['id'];
+$alamat = $_POST['alamat'];
 
 if (isset($_POST['beli'])) {
     $query = mysqli_query($connect, "INSERT INTO penjualan SET
@@ -17,7 +18,7 @@ if (isset($_POST['beli'])) {
         nomortransaksi  = '',
         jam          = '$jam',
         tanggal      = '$tanggal',
-        alamat       = ''
+        alamat       = '$alamat'
     ");
     $idtransaksi = mysqli_insert_id($connect);
 }

@@ -124,9 +124,8 @@ $idpengunjung = $pengunjung['id'];
                                         <h3 class="product__name"><?php echo $brg['nama']; ?></h3>
                                         <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual']); ?></h3>
                                         <h3 class="product__stock">Stok: <?php echo $brg['stok']; ?></h3>
-                                        <button class="btn btn__add" 
-                                        <?php if($brg['stok']>0) {?>data-target="modal-pesan-<?php echo $brg['id']; }?>"
-                                        ><i class='bx bx-cart-add'></i></button>
+                                        <button class="btn btn__add" <?php if ($brg['stok'] > 0) { ?>data-target="modal-pesan-<?php echo $brg['id'];
+                                                                                                                            } ?>"><i class='bx bx-cart-add'></i></button>
                                     </div>
                                 </div>
 
@@ -198,7 +197,7 @@ $idpengunjung = $pengunjung['id'];
         <!-- section pencarian -->
         <section id="search" class="section container flex hidden">
             <form action="" method="post" class="search__bar">
-                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu...">
+                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu..." autofocus>
             </form>
 
             <hr>
@@ -243,6 +242,12 @@ $idpengunjung = $pengunjung['id'];
                 ?>
 
                 <div class="checkout__container shadow">
+                    <div class="checkout__input">
+                        <label for="textarea">
+                            <h3>Alamat Pengiriman</h3>
+                        </label>
+                        <textarea name="alamat" id="textarea" rows="2" autofocus required placeholder="Tulis disini..."><?php echo $pengunjung['alamat']; ?></textarea>
+                    </div>
                     <div class="checkout__content">
                         <h3 id="harga-checkout" class="harga__checkout"></h3>
                         <?php
@@ -350,32 +355,6 @@ $idpengunjung = $pengunjung['id'];
         unset($_SESSION['gagal']);
     }
     ?>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <script>
-        $(document).ready(function() {
-            // Ketika tombol untuk mengonfirmasi perubahan jumlah ditekan
-            $('.btn__kuantitas').click(function() {
-                // Ambil nilai jumlah baru dari input
-                var id = $(this).data('target').split('-')[2]; // Ambil id barang dari data-target
-                var jumlahBaru = $('#kuantitas-' + id).val();
-
-                // Kirim data ke server menggunakan Ajax
-                $.ajax({
-                    url: 'proses/updatejumlah.php?id=' + id, // URL ke skrip PHP untuk mengubah jumlah di database
-                    type: 'POST',
-                    data: {
-                        id: id, // ID barang
-                        jumlahBaru: jumlahBaru // Jumlah baru
-                    },
-                    success: function(response) {
-                        // Tampilkan pesan sukses atau kesalahan
-                        alert(response);
-                    }
-                });
-            });
-        });
-    </script> -->
     <script src="assets/js/script.js"></script>
 </body>
 
