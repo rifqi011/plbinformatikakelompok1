@@ -291,8 +291,8 @@ $idpengunjung = $pengunjung['id'];
                     <div class="transaction__card flex shadow">
                         <div class="transaction__content flex">
                             <div class="transaction__left">
-                                <p class="deliverydate"><?php echo $buy['tanggal'] . " " . $buy['jam']; ?></p>
-                                <p><?php echo $buy['nomortransaksi']; ?></p>
+                                <p class="deliverydate">Tanggal: <?php echo $buy['tanggal'] . " " . $buy['jam']; ?></p>
+                                <p>No: <?php echo $buy['nomortransaksi']; ?></p>
                             </div>
                             <div class="transaction__right">
                                 <p><?php echo $dataPenjualan['jenis']; ?> Menu</p>
