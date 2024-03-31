@@ -32,12 +32,14 @@ function simpan($data)
     $nama        = $data['nama'];
     $kelas       = $data['kelas'];
     $email       = $_POST['email'];
+    $alamat      = $_POST['alamat'];
 
     // Insert Data
     mysqli_query($connect, "UPDATE pengunjung SET 
         nama        = '$nama',
         kelas       = '$kelas',
-        foto        = 'defaultfoto.png' 
+        foto        = 'defaultfoto.png' ,
+        alamat      = '$alamat' 
         WHERE email = '$email'");
 
     return mysqli_affected_rows($connect);

@@ -42,6 +42,10 @@ if(!isset($_SESSION['user'])) {
                 <label for="kelas">Masukan Kelas</label>
                 <input autocomplete="off" type="text" name="kelas" id="kelas" value="<?php echo $data['kelas']?>">
             </div>
+            <div class="login__group">
+                <label for="alamat">Masukan Alamat</label>
+                <input autocomplete="off" type="text" name="alamat" id="alamat" value="<?php echo $data['alamat']?>">
+            </div>
             <input type="hidden" name="email" value="<?php echo $email; ?>">
             <button class="btn btn__login" type="submit" name="simpan">Simpan</button>
         </form>
