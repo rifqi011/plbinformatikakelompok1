@@ -2,11 +2,17 @@
 <?php
 @session_start();
 include 'koneksi.php';
+
+
+$toko = mysqli_query($connect, "SELECT * FROM setting");
+$namatoko = mysqli_fetch_array($toko);
+
+
+
+
 $email = $_SESSION['user'];
 $User = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
-
 $pengunjung = mysqli_fetch_array($User);
-
 $idpengunjung = $pengunjung['id'];
 ?>
 
@@ -28,7 +34,7 @@ $idpengunjung = $pengunjung['id'];
     <header id="header" class="container">
         <div class="nav__container flex">
             <div class="logo">
-                <h1>Lorem, ipsum.</h1>
+                <h1><?php echo $namatoko['nama']; ?></h1>
             </div>
 
             <!-- Navbar Bottom -->
@@ -286,7 +292,7 @@ $idpengunjung = $pengunjung['id'];
                         <div class="transaction__content flex">
                             <div class="transaction__left">
                                 <p class="deliverydate"><?php echo $buy['tanggal'] . " " . $buy['jam']; ?></p>
-                                <p>1124546574</p>
+                                <p><?php echo $buy['nomortransaksi']; ?></p>
                             </div>
                             <div class="transaction__right">
                                 <p><?php echo $dataPenjualan['jenis']; ?> Menu</p>
