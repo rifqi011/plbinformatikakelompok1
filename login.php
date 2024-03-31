@@ -16,11 +16,13 @@ if (isset($_SESSION['user'])) {
     <title>Masuk - Toko</title>
     <link rel="stylesheet" href="assets/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
     <header id="header">
         <div class="login__header">
+            <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Masuk</h1>
         </div>
     </header>

@@ -354,6 +354,16 @@ input.checkbox__cart {
     border-radius: .5rem;
 }
 
+#textarea {
+    resize: none;
+    width: 100%;
+    font-family: var(--sans-font);
+    font-size: 1.2rem;
+    outline: none !important;
+    padding: 3px;
+    border-radius: 10px;
+}
+
 /* Pembelian */
 #buy {
     width: 90%;
