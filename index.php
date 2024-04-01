@@ -351,7 +351,7 @@ $idpengunjung = $pengunjung['id'];
 
                     <hr class="hr-pop">
 
-                    <h3>Penerima: <?php echo $dataUser['nama']; ?></h3>
+                    <h3>Penerima: <?php echo $pengunjung['nama']; ?></h3>
                     <h3>Alamat: <?php echo $buy['alamat']; ?></h3>
 
                     <hr class="hr-pop">
