@@ -1,5 +1,9 @@
-<?php @session_start();
-include 'koneksi.php'; ?>
+<!-- Start Session & Include koneksi.php -->
+<?php
+@session_start();
+include 'koneksi.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +17,7 @@ include 'koneksi.php'; ?>
 </head>
 
 <body>
+    <!-- Header -->
     <header id="header">
         <div class="login__header flex">
             <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
@@ -23,6 +28,8 @@ include 'koneksi.php'; ?>
 
     <section class="login__content flex">
         <h1 class="headline">Selamat datang </h1>
+
+        <!-- Form -->
         <form method="post" action="proses/usersignup.php" class="login__form flex">
             <div class="login__group">
                 <label for="nama">Masukan Nama*</label>
@@ -54,7 +61,10 @@ include 'koneksi.php'; ?>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Pop Up -->
     <?php
+    // Kondisi Sukses
     if (isset($_SESSION['sukses'])) {
     ?>
         <script>
@@ -71,6 +81,7 @@ include 'koneksi.php'; ?>
         unset($_SESSION['sukses']); // Hapus sesi sukses setelah ditampilkan
     }
 
+    // Kondisi Gagal
     if (isset($_SESSION['gagal'])) {
     ?>
         <script>
@@ -84,7 +95,7 @@ include 'koneksi.php'; ?>
             });
         </script>
     <?php
-        unset($_SESSION['gagal']);
+        unset($_SESSION['gagal']); // Hapus sesi sukses setelah ditampilkan
     }
     ?>
 </body>

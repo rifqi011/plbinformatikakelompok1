@@ -1,8 +1,11 @@
+<!-- Start SESSION dan Include koneksi -->
 <?php
 @session_start();
 include 'koneksi.php';
 
+// Kondisi Jika Terdapat SESSION maka Tidak Bisa Masuk Halaman Ini
 if (isset($_SESSION['user'])) {
+    // Halaman yang Dituju
     header('Location: index.php');
 }
 ?>
@@ -20,6 +23,7 @@ if (isset($_SESSION['user'])) {
 </head>
 
 <body>
+    <!-- Header -->
     <header id="header">
         <div class="login__header flex">
             <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
@@ -31,10 +35,11 @@ if (isset($_SESSION['user'])) {
     <section class="login__content flex">
         <h1 class="headline">Selamat datang </h1>
 
-        <?php if (isset($error)) : ?>
+        <!-- <?php //if (isset($error)) : ?>
             <p>Salah</p>
-        <?php endif; ?>
+        <?php //endif; ?> -->
 
+        <!-- Form -->
         <form action="proses/userlogin.php" class="login__form flex" method="post">
             <div class="login__group">
                 <label for="email">Masukan Email</label>
@@ -50,7 +55,9 @@ if (isset($_SESSION['user'])) {
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <?php
+    // Kondisi Jika Sukses
     if (isset($_SESSION['sukses'])) {
     ?>
         <script>
@@ -67,6 +74,7 @@ if (isset($_SESSION['user'])) {
         unset($_SESSION['sukses']); // Hapus sesi sukses setelah ditampilkan
     }
 
+    // Kondisi Jika Gagal
     if (isset($_SESSION['gagal'])) {
     ?>
         <script>
@@ -80,7 +88,7 @@ if (isset($_SESSION['user'])) {
             });
         </script>
     <?php
-        unset($_SESSION['gagal']);
+        unset($_SESSION['gagal']); // Hapus sesi sukses setelah ditampilkan
     }
     ?>
 </body>

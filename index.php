@@ -3,14 +3,14 @@
 @session_start();
 include 'koneksi.php';
 
-
+// Query Tabel setting dan Fetch Tabel
 $toko = mysqli_query($connect, "SELECT * FROM setting");
 $namatoko = mysqli_fetch_array($toko);
 
-
-
-
+// Mengambil SESSION
 $email = $_SESSION['user'];
+
+// Mengambil Data Pengunjung dari Tabel Berdasarkan SESSION yang Aktif
 $User = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
 $pengunjung = mysqli_fetch_array($User);
 $idpengunjung = $pengunjung['id'];
@@ -55,14 +55,8 @@ $idpengunjung = $pengunjung['id'];
                 </ul>
             </nav>
 
-            <!-- query Database User -->
-            <?php
-            $User = mysqli_query($connect, "SELECT * FROM pengunjung");
-            $dataUser = mysqli_fetch_array($User);
-            ?>
-
             <a href="profile.php" class="profile">
-                <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
+                <img src="assets/img/<?php echo $pengunjung['foto']; ?>" alt="" class="profile__img">
                 <?php
                 if (!$email) {
                     echo "<p>Tamu</p>";
@@ -367,7 +361,6 @@ $idpengunjung = $pengunjung['id'];
                         while ($dataPesanan = mysqli_fetch_array($pesanan)) {
                             $barang = mysqli_query($connect,"SELECT * FROM barang WHERE id = '$dataPesanan[idbarang]'");
                             $brg = mysqli_fetch_array($barang);
-                            echo $dataPesanan['jumlah'] . $brg['nama']." x ". $dataPesanan['harga'];
                         ?>
                         
                         <?php
