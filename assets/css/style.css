@@ -389,3 +389,25 @@ input.checkbox__cart {
 .deliverydate {
     font-size: 1.2rem;
 }
+
+.status p {
+    align-items: center;
+    gap: 3px;
+    color: var(--white-color);
+    padding: 4px;
+    border-radius: 4px;
+    font-weight: 200;
+    font-family: var(--sans-font);
+}
+
+.gagal {
+    background-color: var(--red-color);
+}
+
+.diproses {
+    background-color: #FAA300;
+}
+
+.berhasil {
+    background-color: var(--dark-green-color);
+}

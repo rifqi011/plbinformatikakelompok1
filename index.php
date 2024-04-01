@@ -305,15 +305,23 @@ $idpengunjung = $pengunjung['id'];
 
                         <div class="transaction__content flex">
                             <p class="price">Rp.<?php echo number_format($dataPenjualan['totalharga']); ?></p>
-                            <p class="status">
+                            <div class="status">
                                 <?php
-                                if ($dataTransaksi['status'] == 0) {
-                                    echo "Diproses";
-                                } elseif ($dataTransaksi['status'] == 0) {
-                                    echo "Selesai";
+                                if ($buy['status'] == 0) {
+                                ?>
+                                    <p class="gagal flex"><i class='bx bx-x-circle'></i>Gagal</p>
+                                <?php
+                                } elseif ($buy['status'] == 1) {
+                                ?>
+                                    <p class="diproses flex"><i class='bx bx-bolt-circle'></i>Diproses</p>
+                                <?php
+                                } elseif ($buy['status'] == 2) {
+                                ?>
+                                    <p class="berhasil flex"><i class='bx bx-check-circle'></i>Berhasil</p>
+                                <?php
                                 }
                                 ?>
-                            </p>
+                            </div>
                         </div>
                     </div>
                 <?php
