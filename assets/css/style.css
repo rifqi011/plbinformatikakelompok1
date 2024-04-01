@@ -400,10 +400,6 @@ input.checkbox__cart {
     font-family: var(--sans-font);
 }
 
-.gagal {
-    background-color: var(--red-color);
-}
-
 .diproses {
     background-color: #FAA300;
 }
@@ -413,7 +409,7 @@ input.checkbox__cart {
 }
 
 .popup {
-    position: absolute;
+    position: fixed;
     z-index: 9999;
     width: 90%;
     padding: 1rem;

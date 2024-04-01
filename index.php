@@ -128,7 +128,7 @@ $idpengunjung = $pengunjung['id'];
                                     </div>
                                     <div class="card__slide__content flex">
                                         <h3 class="product__name"><?php echo $brg['nama']; ?></h3>
-                                        <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual']); ?></h3>
+                                        <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual'])."/".$brg['satuan']; ?></h3>
                                         <h3 class="product__stock">Stok: <?php if ($brg['stok'] > 0) echo $brg['stok'];
                                                                             else echo "SOLD OUT"; ?></h3>
                                         <button class="btn btn__add" <?php if ($brg['stok'] > 0) { ?>data-target="modal-pesan-<?php echo $brg['id'];
@@ -166,7 +166,7 @@ $idpengunjung = $pengunjung['id'];
 
                                     <div class="modal__data">
                                         <h1><?php echo $brg['nama']; ?></h1>
-                                        <p>Harga: Rp.<?php echo number_format($brg['hargajual']); ?></p>
+                                        <p>Harga: Rp.<?php echo number_format($brg['hargajual'])."/".$brg['satuan']; ?></p>
                                         <p>Stok: <?php echo $brg['stok']; ?></p>
                                         <p><?php echo $brg['keterangan']; ?></p>
                                     </div>
@@ -309,15 +309,15 @@ $idpengunjung = $pengunjung['id'];
                                 <?php
                                 if ($buy['status'] == 0) {
                                 ?>
-                                    <p class="gagal flex"><i class='bx bx-x-circle'></i>Gagal</p>
+                                    <p class="diproses flex"><i class='bx bx-bolt-circle'></i>Diproses</p>
                                 <?php
                                 } elseif ($buy['status'] == 1) {
                                 ?>
-                                    <p class="diproses flex"><i class='bx bx-bolt-circle'></i>Diproses</p>
+                                    <p class="diproses flex"><i class='bx bx-bolt-circle'></i>Dikirim</p>
                                 <?php
                                 } elseif ($buy['status'] == 2) {
                                 ?>
-                                    <p class="berhasil flex"><i class='bx bx-check-circle'></i>Berhasil</p>
+                                    <p class="berhasil flex"><i class='bx bx-check-circle'></i>Selesai</p>
                                 <?php
                                 }
                                 ?>
@@ -332,12 +332,16 @@ $idpengunjung = $pengunjung['id'];
                 <p>Login untuk melihat</p>
             <?php
             }
+            ?>
+
+            <!-- Pop up -->
+            <?php
             $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung' ORDER by id DESC");
 
             while ($buy = mysqli_fetch_array($pembelian)) {
             ?>
 
-                <!-- Pop up -->
+                
                 <div class="popup" id="popup-<?php echo $buy['id']; ?>">
                     <div class="popup__header flex">
                         <h2 class="section__title">Data Pembelian</h2>
@@ -358,7 +362,17 @@ $idpengunjung = $pengunjung['id'];
 
                         <h2>Pesanan</h2>
 
-
+                        <?php
+                        $pesanan = mysqli_query($connect, "SELECT * FROM keranjang WHERE idtransaksi = '$buy[id]'");
+                        while ($dataPesanan = mysqli_fetch_array($pesanan)) {
+                            $barang = mysqli_query($connect,"SELECT * FROM barang WHERE id = '$dataPesanan[idbarang]'");
+                            $brg = mysqli_fetch_array($barang);
+                            echo $dataPesanan['jumlah'] . $brg['nama']." x ". $dataPesanan['harga'];
+                        ?>
+                        
+                        <?php
+                        }
+                        ?>
                     </div>
                 </div>
             <?php } ?>
