@@ -29,6 +29,7 @@ function signup($data)
     $email       = $data['email'];
     $password    = mysqli_real_escape_string($connect, $data['password']);
     $password2   = mysqli_real_escape_string($connect, $data['password2']);
+    $alamat      = $data['alamat'];
 
     // Cek Username
     $result = mysqli_query($connect, "SELECT email FROM pengunjung WHERE email = '$email'");
@@ -55,7 +56,8 @@ function signup($data)
         kelas       = '$kelas',
         email       = '$email',
         foto        = 'defaultfoto.png',
-        password    = '$password'");
+        password    = '$password',
+        alamat      = '$alamat'");
 
     return mysqli_affected_rows($connect);
 }

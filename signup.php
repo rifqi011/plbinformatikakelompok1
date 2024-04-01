@@ -14,7 +14,7 @@ include 'koneksi.php'; ?>
 
 <body>
     <header id="header">
-        <div class="login__header">
+        <div class="login__header flex">
             <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Daftar</h1>
         </div>
@@ -25,7 +25,7 @@ include 'koneksi.php'; ?>
         <h1 class="headline">Selamat datang </h1>
         <form method="post" action="proses/usersignup.php" class="login__form flex">
             <div class="login__group">
-                <label for="nama">Masukan Nama</label>
+                <label for="nama">Masukan Nama*</label>
                 <input autocomplete="off" type="text" name="nama" id="nama" required autofocus>
             </div>
             <div class="login__group">
@@ -33,16 +33,20 @@ include 'koneksi.php'; ?>
                 <input autocomplete="off" type="text" name="kelas" id="kelas">
             </div>
             <div class="login__group">
-                <label for="email">Masukan Email</label>
+                <label for="email">Masukan Email*</label>
                 <input autocomplete="off" type="email" name="email" id="email" required>
             </div>
             <div class="login__group">
-                <label for="password">Masukan Password</label>
+                <label for="password">Masukan Password*</label>
                 <input autocomplete="off" type="password" name="password" id="password" required>
             </div>
             <div class="login__group">
-                <label for="password2">Konfirmasi Password</label>
+                <label for="password2">Konfirmasi Password*</label>
                 <input autocomplete="off" type="password" name="password2" id="password2" required>
+            </div>
+            <div class="login__group">
+                <label for="alamat">Masukan Alamat</label>
+                <input autocomplete="off" type="password" name="alamat" id="alamat">
             </div>
             <button class="btn btn__login" type="submit" name="signup">Daftar</button>
             <p class="signup__link">Sudah punya akun?&nbsp;<a href="login.php">Masuk</a></p>

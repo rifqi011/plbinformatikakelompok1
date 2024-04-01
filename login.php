@@ -21,7 +21,7 @@ if (isset($_SESSION['user'])) {
 
 <body>
     <header id="header">
-        <div class="login__header">
+        <div class="login__header flex">
             <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Masuk</h1>
         </div>
