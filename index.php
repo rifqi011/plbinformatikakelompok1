@@ -334,32 +334,34 @@ $idpengunjung = $pengunjung['id'];
             }
             $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung' ORDER by id DESC");
 
-            while ($buy = mysqli_fetch_array($pembelian))  {
+            while ($buy = mysqli_fetch_array($pembelian)) {
             ?>
-            
-            <!-- Pop up -->
-            <div class="popup" id="popup-<?php echo $buy['id']; ?>">
-                <div class="popup__header flex">
-                    <h2 class="section__title">Data Pembelian</h2>
-                    <i class="bx bx-x popup__close" id="popup-close-<?php echo $buy['id']; ?>"></i>
-                </div>
-                <hr class="hr-pop">
 
-                <div class="popup__body">
-                    <p>Tanggal: <?php echo $buy['tanggal']; ?></p>
-                    <p>No: <?php echo $buy['nomortransaksi']; ?></p>
-
+                <!-- Pop up -->
+                <div class="popup" id="popup-<?php echo $buy['id']; ?>">
+                    <div class="popup__header flex">
+                        <h2 class="section__title">Data Pembelian</h2>
+                        <i class="bx bx-x popup__close" id="popup-close-<?php echo $buy['id']; ?>"></i>
+                    </div>
                     <hr class="hr-pop">
 
-                    <h3>Penerima: <?php echo $pengunjung['nama']; ?></h3>
-                    <h3>Alamat: <?php echo $buy['alamat']; ?></h3>
+                    <div class="popup__body">
+                        <p>Tanggal: <?php echo $buy['tanggal']; ?></p>
+                        <p>No: <?php echo $buy['nomortransaksi']; ?></p>
 
-                    <hr class="hr-pop">
+                        <hr class="hr-pop">
 
-                    <h2>Pesanan</h2>
+                        <h3>Penerima: <?php echo $pengunjung['nama']; ?></h3>
+                        <h3>Alamat: <?php echo $buy['alamat']; ?></h3>
+
+                        <hr class="hr-pop">
+
+                        <h2>Pesanan</h2>
+
+
+                    </div>
                 </div>
-            </div>
-            <?php }?>
+            <?php } ?>
         </section>
     </main>
 
