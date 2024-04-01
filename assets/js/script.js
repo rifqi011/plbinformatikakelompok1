@@ -293,3 +293,16 @@ keyword.addEventListener("keyup", () => {
     xhr.open("GET", "assets/ajax/data.php?keyword=" + keyword.value, true);
     xhr.send();
 });
+
+// Pop out
+// Ambil semua elemen transaction card
+function popUp(id) {
+    const popup = document.getElementById(`popup-${id}`)
+    const closePopup = document.getElementById(`popup-close-${id}`)
+
+    popup.classList.add("show-popup")
+
+    closePopup.addEventListener("click", () => {
+        popup.classList.remove("show-popup")
+    })
+}

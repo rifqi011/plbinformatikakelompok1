@@ -253,7 +253,7 @@ $idpengunjung = $pengunjung['id'];
                         <label for="textarea">
                             <h3>Alamat Pengiriman</h3>
                         </label>
-                        <textarea name="alamat" id="textarea" rows="2" autofocus required placeholder="Tulis disini..."><?php echo $pengunjung['alamat']; ?></textarea>
+                        <textarea name="alamat" id="textarea" rows="2" required placeholder="Tulis disini..." autofocus><?php echo $pengunjung['alamat']; ?></textarea>
                     </div>
                     <div class="checkout__content">
                         <h3 id="harga-checkout" class="harga__checkout"></h3>
@@ -289,7 +289,7 @@ $idpengunjung = $pengunjung['id'];
                     $penjualan = mysqli_query($connect, "SELECT COUNT(id) as jenis, SUM(jumlah) as jumlah, SUM(jumlah*harga) as totalharga FROM keranjang WHERE idtransaksi = '$buy[id]'");
                     $dataPenjualan = mysqli_fetch_array($penjualan);
                 ?>
-                    <div class="transaction__card flex shadow">
+                    <div class="transaction__card flex shadow" onclick="popUp(<?php echo $buy['id'] ?>)">
                         <div class="transaction__content flex">
                             <div class="transaction__left">
                                 <p class="deliverydate">Tanggal: <?php echo $buy['tanggal'] . " " . $buy['jam']; ?></p>
@@ -329,9 +329,37 @@ $idpengunjung = $pengunjung['id'];
             } else {
                 ?>
                 <h2 class="section__title">Pembelian</h2>
+                <p>Login untuk melihat</p>
             <?php
             }
+            $pembelian = mysqli_query($connect, "SELECT * FROM  penjualan WHERE idpengunjung = '$idpengunjung' ORDER by id DESC");
+
+            while ($buy = mysqli_fetch_array($pembelian))  {
             ?>
+            
+            <!-- Pop up -->
+            <div class="popup" id="popup-<?php echo $buy['id']; ?>">
+                <div class="popup__header flex">
+                    <h2 class="section__title">Data Pembelian</h2>
+                    <i class="bx bx-x popup__close" id="popup-close-<?php echo $buy['id']; ?>"></i>
+                </div>
+                <hr class="hr-pop">
+
+                <div class="popup__body">
+                    <p>Tanggal: <?php echo $buy['tanggal']; ?></p>
+                    <p>No: <?php echo $buy['nomortransaksi']; ?></p>
+
+                    <hr class="hr-pop">
+
+                    <h3>Penerima: <?php echo $dataUser['nama']; ?></h3>
+                    <h3>Alamat: <?php echo $buy['alamat']; ?></h3>
+
+                    <hr class="hr-pop">
+
+                    <h2>Pesanan</h2>
+                </div>
+            </div>
+            <?php }?>
         </section>
     </main>
 
