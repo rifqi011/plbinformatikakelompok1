@@ -148,36 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
 // ---------- Change Section end ---------- //
-
-//-------------------Mobile Only---------------------//
-/* document.addEventListener("DOMContentLoaded", function() {
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-
-    if (!isMobile) {
-    // Tampilkan modal jika bukan perangkat seluler
-        const modal = document.getElementById("modal-confirm")
-        modal.style.display = "block"
-
-        // Event listener untuk tombol "Lanjut"
-        document.getElementById("continueBtn").addEventListener("click", function() {
-            modal.style.display = "none"
-            document.getElementById("desktop").style.display = "none"
-            document.getElementById("mobile").style.display = "block"
-        })
-
-        // Event listener untuk tombol "Keluar"
-        document.getElementById("exitBtn").addEventListener("click", function() {
-            modal.style.display = "none"
-            document.getElementById("desktop").style.display = "block"
-            document.getElementById("mobile").style.display = "none"
-        })
-    } else {
-        document.getElementById("desktop").style.display = "none"
-        document.getElementById("mobile").style.display = "block" // Tampilkan konten mobile jika pengguna adalah perangkat mobile
-    }
-}) */
 
 // ---------- Modal ---------- //
 // Fungsi untuk menampilkan modal ketika tombol "Add to Cart" diklik
@@ -297,12 +268,12 @@ keyword.addEventListener("keyup", () => {
 // Pop out
 // Ambil semua elemen transaction card
 function popUp(id) {
-    const popup = document.getElementById(`popup-${id}`)
-    const closePopup = document.getElementById(`popup-close-${id}`)
+    const popup = document.getElementById(`popup-${id}`);
+    const closePopup = document.getElementById(`popup-close-${id}`);
 
-    popup.classList.add("show-popup")
+    popup.classList.add("show-popup");
 
     closePopup.addEventListener("click", () => {
-        popup.classList.remove("show-popup")
-    })
+        popup.classList.remove("show-popup");
+    });
 }
