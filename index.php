@@ -56,11 +56,16 @@ $idpengunjung = $pengunjung['id'];
             </nav>
 
             <a href="profile.php" class="profile">
-                <img src="assets/img/<?php echo $pengunjung['foto']; ?>" alt="" class="profile__img">
                 <?php
                 if (!$email) {
-                    echo "<p>Tamu</p>";
+                ?>
+                    <img src="assets/img/defaultfoto.png" alt="" class="profile__img">
+                    <p>Tamu</p>
+                <?php
                 } else {
+                ?>
+                    <img src="assets/img/<?php echo $pengunjung['foto']; ?>" alt="" class="profile__img">
+                <?php
                     echo $pengunjung['nama'];
                 }
                 ?>
@@ -122,7 +127,7 @@ $idpengunjung = $pengunjung['id'];
                                     </div>
                                     <div class="card__slide__content flex">
                                         <h3 class="product__name"><?php echo $brg['nama']; ?></h3>
-                                        <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual'])."/".$brg['satuan']; ?></h3>
+                                        <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual']) . "/" . $brg['satuan']; ?></h3>
                                         <h3 class="product__stock">Stok: <?php if ($brg['stok'] > 0) echo $brg['stok'];
                                                                             else echo "SOLD OUT"; ?></h3>
                                         <button class="btn btn__add" <?php if ($brg['stok'] > 0) { ?>data-target="modal-pesan-<?php echo $brg['id'];
@@ -160,7 +165,7 @@ $idpengunjung = $pengunjung['id'];
 
                                     <div class="modal__data">
                                         <h1><?php echo $brg['nama']; ?></h1>
-                                        <p>Harga: Rp.<?php echo number_format($brg['hargajual'])."/".$brg['satuan']; ?></p>
+                                        <p>Harga: Rp.<?php echo number_format($brg['hargajual']) . "/" . $brg['satuan']; ?></p>
                                         <p>Stok: <?php echo $brg['stok']; ?></p>
                                         <p><?php echo $brg['keterangan']; ?></p>
                                     </div>
@@ -207,8 +212,8 @@ $idpengunjung = $pengunjung['id'];
                 <h1>Cari Sesuatu</h1>
             </div>
         </section>
-        <!-- section pencarian -->
 
+        <!-- section Keranjang -->
         <section id="cart" class="section container flex hidden">
             <h2 class="section__title">Keranjang</h2>
 
@@ -227,7 +232,7 @@ $idpengunjung = $pengunjung['id'];
 
                             <div class="produk__data flex">
                                 <h3 class="product__name-data"><?php echo $row['nama']; ?></h3>
-                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo $val['hargajual']; ?></h3>
+                                <h3 class="product__price-data" id="harga-<?php echo $val['idcart']; ?>">Rp.<?php echo number_format($val['hargajual']); ?></h3>
                                 <div class="flex menu__cart">
                                     <div class="btn btn__kuantitas" onclick="cartKurangBarang(<?php echo $val['idbarang']; ?>)">-</div>
                                     <input type="text" name="id<?php echo $val['idbarang']; ?>" id="cart-kuantitas-<?php echo $val['idbarang']; ?>" class="kuantitas__input kuantitas__keranjang" data-harga="<?php echo $row['hargajual']; ?>" value="<?php echo $val['jumlah']; ?>" readonly>
@@ -335,7 +340,7 @@ $idpengunjung = $pengunjung['id'];
             while ($buy = mysqli_fetch_array($pembelian)) {
             ?>
 
-                
+
                 <div class="popup" id="popup-<?php echo $buy['id']; ?>">
                     <div class="popup__header flex">
                         <h2 class="section__title">Data Pembelian</h2>
@@ -355,17 +360,27 @@ $idpengunjung = $pengunjung['id'];
                         <hr class="hr-pop">
 
                         <h2>Pesanan</h2>
+                        <table width="100%" align="center"  cellspacing=0>
 
-                        <?php
-                        $pesanan = mysqli_query($connect, "SELECT * FROM keranjang WHERE idtransaksi = '$buy[id]'");
-                        while ($dataPesanan = mysqli_fetch_array($pesanan)) {
-                            $barang = mysqli_query($connect,"SELECT * FROM barang WHERE id = '$dataPesanan[idbarang]'");
-                            $brg = mysqli_fetch_array($barang);
-                        ?>
-                        
-                        <?php
-                        }
-                        ?>
+                            <?php
+                            $pesanan = mysqli_query($connect, "SELECT * FROM keranjang WHERE idtransaksi = '$buy[id]'");
+                            while ($dataPesanan = mysqli_fetch_array($pesanan)) {
+                                $barang = mysqli_query($connect, "SELECT * FROM barang WHERE id = '$dataPesanan[idbarang]'");
+                                $brg = mysqli_fetch_array($barang);
+                            ?>
+                                <tr>
+                                    <td>40</td>
+                                    <td>porsi</td>
+                                    <td>Mie Ayam</td>
+                                    <td>@</td>
+                                    <td align="right">Rp.4.000</td>
+                                    <td>=</td>
+                                    <td align="right">Rp.4.000</td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </table>
                     </div>
                 </div>
             <?php } ?>
