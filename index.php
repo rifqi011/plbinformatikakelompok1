@@ -369,13 +369,13 @@ $idpengunjung = $pengunjung['id'];
                                 $brg = mysqli_fetch_array($barang);
                             ?>
                                 <tr>
-                                    <td>40</td>
-                                    <td>porsi</td>
-                                    <td>Mie Ayam</td>
+                                    <td><?php echo $dataPesanan['jumlah']; ?></td>
+                                    <td><?php echo $brg['satuan']; ?></td>
+                                    <td><?php echo $brg['nama']; ?></td>
                                     <td>@</td>
-                                    <td align="right">Rp.4.000</td>
-                                    <td>=</td>
-                                    <td align="right">Rp.4.000</td>
+                                    <td align="right">Rp.<?php echo number_format($brg['hargajual']); ?></td>
+                                    <td align="right">=</td>
+                                    <td align="right">Rp.<?php echo number_format($brg['hargajual'] * $dataPesanan['jumlah']); ?></td>
                                 </tr>
                             <?php
                             }
