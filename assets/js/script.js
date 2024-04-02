@@ -157,7 +157,10 @@ addButtonList.forEach((button) => {
     button.addEventListener("click", function () {
         const targetModalId = this.getAttribute("data-target");
         const modal = document.getElementById(targetModalId);
+const body = document.getElementById("body")
+
         modal.classList.add("modal-show");
+        body.style.overflow = "hidden"
     });
 });
 
@@ -167,7 +170,10 @@ closeButtonList.forEach((button) => {
     button.addEventListener("click", function () {
         const targetModalId = this.getAttribute("data-target");
         const modal = document.getElementById(targetModalId);
+        const body = document.getElementById("body")
+
         modal.classList.remove("modal-show");
+        body.style.overflow = "overlay"
     });
 });
 // ---------- Nav Link ---------- //
@@ -270,10 +276,13 @@ keyword.addEventListener("keyup", () => {
 function popUp(id) {
     const popup = document.getElementById(`popup-${id}`);
     const closePopup = document.getElementById(`popup-close-${id}`);
+    const body = document.getElementById("body")
 
     popup.classList.add("show-popup");
+    body.style.overflow = "hidden"
 
     closePopup.addEventListener("click", () => {
         popup.classList.remove("show-popup");
+        body.style.overflow = "overlay"
     });
 }

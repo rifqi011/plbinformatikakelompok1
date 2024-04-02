@@ -29,7 +29,7 @@ $idpengunjung = $pengunjung['id'];
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body id="body">
     <!-- Header Top -->
     <header id="header" class="container">
         <div class="nav__container flex">
