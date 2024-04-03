@@ -128,10 +128,8 @@ $idpengunjung = $pengunjung['id'];
                                     <div class="card__slide__content flex">
                                         <h3 class="product__name"><?php echo $brg['nama']; ?></h3>
                                         <h3 class="product__price">Harga: Rp.<?php echo number_format($brg['hargajual']) . "/" . $brg['satuan']; ?></h3>
-                                        <h3 class="product__stock">Stok: <?php if ($brg['stok'] > 0) echo $brg['stok'];
-                                                                            else echo "SOLD OUT"; ?></h3>
-                                        <button class="btn btn__add" <?php if ($brg['stok'] > 0) { ?>data-target="modal-pesan-<?php echo $brg['id'];
-                                                                                                                            } ?>"><i class='bx bx-cart-add'></i></button>
+                                        <h3 class="product__stock">Stok: <?php echo ($brg['stok'] > 0) ? $brg['stok'] : "SOLD OUT"; ?></h3>
+                                        <button class="btn btn__add" <? echo ($brg['stok'] > 0) ? 'data-target="modal-pesan-' . $brg['id'] . '"' : '' ?>"><i class='bx bx-cart-add'></i></button>
                                     </div>
                                 </div>
 
@@ -360,7 +358,7 @@ $idpengunjung = $pengunjung['id'];
                         <hr class="hr-pop">
 
                         <h2>Pesanan</h2>
-                        <table width="100%" align="center"  cellspacing=0>
+                        <table width="100%" align="center" cellspacing=0>
 
                             <?php
                             $pesanan = mysqli_query($connect, "SELECT * FROM keranjang WHERE idtransaksi = '$buy[id]'");
