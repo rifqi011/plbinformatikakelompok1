@@ -1,0 +1,81 @@
+@import url(variable.css);
+
+.hidden {
+    display: none;
+}
+
+@media screen and (min-width: 968px) {
+    #main {
+        width: 75%;
+        margin-inline: auto;
+    }
+
+    /* Header */
+    #header {
+        position: fixed;
+        z-index: 99;
+    }
+
+    #navbar {
+        position: relative;
+        width: 400px;
+    }
+    
+    .nav__container {
+        width: 75%;
+        margin-inline: auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav {
+        gap: 80px;
+    }
+
+    .nav__list {
+        padding: 1rem;
+    }
+
+    .nav__link {
+        width: auto;
+    }
+
+    .nav__link i {
+        display: none;
+    }
+
+    .active-link::before {
+        content: '';
+        position: absolute;
+        text-align: center;
+        top: 100%;
+        height: 3px;
+        width: 50px;
+        background-color: var(--red-color);
+        text-align: center;
+    }
+
+    .profile {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 0.7rem;
+        width: 200px;
+    }
+
+    /* Scroll Header */
+    .scroll__header {
+        animation: header .5s ease forwards;
+        position: fixed;
+    }
+    
+    @keyframes header {
+        0% {transform: translateY(-100%);}
+        100% {transform: translateY(0);}
+    }
+
+    /* Home */
+    #home {
+        padding-block-start: 120px;
+    }
+}

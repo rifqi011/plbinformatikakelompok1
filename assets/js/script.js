@@ -63,19 +63,38 @@ navLinks.forEach((link) => {
 // ---------- Nav Link end ---------- //
 
 // ---------- Navbar Scroll ---------- //
-const navbar = document.getElementById("navbar");
+// Periksa lebar layar perangkat
+if (window.matchMedia("(min-width: 968px)").matches) {
+    // Jika lebar layar lebih dari 968px, gunakan "header" sebagai elemen navbar
+    const header = document.getElementById("header");
 
-window.addEventListener("scroll", () => {
-    let sticky = header.offsetTop;
+    window.addEventListener("scroll", () => {
+        let sticky = header.offsetTop;
 
-    if (window.pageYOffset > sticky) {
-        navbar.classList.add("scroll__navbar");
-        navbar.classList.add("shadow");
-    } else {
-        navbar.classList.remove("scroll__navbar");
-        navbar.classList.remove("shadow");
-    }
-});
+        if (window.pageYOffset > sticky) {
+            header.classList.add("scroll__header");
+            header.classList.add("shadow");
+        } else {
+            header.classList.remove("scroll__header");
+            header.classList.remove("shadow");
+        }
+    });
+} else {
+    // Jika lebar layar kurang dari atau sama dengan 968px, gunakan "navbar" sebagai elemen navbar
+    const navbar = document.getElementById("navbar");
+
+    window.addEventListener("scroll", () => {
+        let sticky = navbar.offsetTop;
+
+        if (window.pageYOffset > sticky) {
+            navbar.classList.add("scroll__navbar");
+            navbar.classList.add("shadow");
+        } else {
+            navbar.classList.remove("scroll__navbar");
+            navbar.classList.remove("shadow");
+        }
+    });
+}
 // ---------- Navbar Scroll end ---------- //
 
 // ---------- Swiper ---------- //
@@ -157,10 +176,10 @@ addButtonList.forEach((button) => {
     button.addEventListener("click", function () {
         const targetModalId = this.getAttribute("data-target");
         const modal = document.getElementById(targetModalId);
-const body = document.getElementById("body")
+        const body = document.getElementById("body");
 
         modal.classList.add("modal-show");
-        body.style.overflow = "hidden"
+        body.style.overflow = "hidden";
     });
 });
 
@@ -170,10 +189,10 @@ closeButtonList.forEach((button) => {
     button.addEventListener("click", function () {
         const targetModalId = this.getAttribute("data-target");
         const modal = document.getElementById(targetModalId);
-        const body = document.getElementById("body")
+        const body = document.getElementById("body");
 
         modal.classList.remove("modal-show");
-        body.style.overflow = "overlay"
+        body.style.overflow = "overlay";
     });
 });
 // ---------- Nav Link ---------- //
@@ -276,13 +295,13 @@ keyword.addEventListener("keyup", () => {
 function popUp(id) {
     const popup = document.getElementById(`popup-${id}`);
     const closePopup = document.getElementById(`popup-close-${id}`);
-    const body = document.getElementById("body")
+    const body = document.getElementById("body");
 
     popup.classList.add("show-popup");
-    body.style.overflow = "hidden"
+    body.style.overflow = "hidden";
 
     closePopup.addEventListener("click", () => {
         popup.classList.remove("show-popup");
-        body.style.overflow = "overlay"
+        body.style.overflow = "overlay";
     });
 }

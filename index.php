@@ -26,6 +26,7 @@ $idpengunjung = $pengunjung['id'];
     <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/desktop.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 
@@ -38,6 +39,7 @@ $idpengunjung = $pengunjung['id'];
             </div>
 
             <!-- Navbar Bottom -->
+
             <nav id="navbar">
                 <ul class="nav__list flex">
                     <li class="nav__item">
@@ -75,7 +77,7 @@ $idpengunjung = $pengunjung['id'];
     <!-- Header end -->
 
     <!-- Main Page Mobile -->
-    <main id="mobile">
+    <main id="main">
         <!-- Home Section -->
         <section id="home" class="section container flex active-section">
             <!-- Home Banner -->
