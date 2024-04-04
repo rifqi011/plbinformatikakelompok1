@@ -50,3 +50,14 @@ input {
     color: var(--white-color);
     justify-content: center;
 }
+
+@media screen and (min-width: 968px) {
+    #header {
+        width: 75%;
+        margin-inline: auto;
+    }
+    .login__content {
+        width: 40%;
+        margin-inline: auto;
+    }
+}
