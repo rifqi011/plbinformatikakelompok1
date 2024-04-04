@@ -65,3 +65,20 @@ body {
     padding: 1rem;
     width: 100%;
 }
+
+@media screen and (min-width: 968px) {
+    #header {
+        width: 75%;
+        margin-inline: auto;
+    }
+    #main {
+        width: 50%;
+        margin-inline: auto;
+    }
+
+    .profile__btn {
+        width: 25%;
+        justify-content: center;
+        margin-inline: auto;
+    }
+}

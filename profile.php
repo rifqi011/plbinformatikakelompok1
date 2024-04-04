@@ -33,42 +33,44 @@ $dataUser = mysqli_fetch_array($User);
 
     <hr>
 
-    <?php
-    // Kondisi Jika Terdapat SESSION
-    if (isset($_SESSION['user'])) {
-    ?>
-        <div class="profile__content">
-            <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
+    <main id="main">
+        <?php
+        // Kondisi Jika Terdapat SESSION
+        if (isset($_SESSION['user'])) {
+        ?>
+            <div class="profile__content">
+                <img src="assets/img/<?php echo $dataUser['foto']; ?>" alt="" class="profile__img">
 
-            <div class="profile__data">
-                <h2 class="nama"><?php echo $dataUser['nama']; ?></h2>
-                <p class="email"><?php echo $dataUser['email']; ?></p>
+                <div class="profile__data">
+                    <h2 class="nama"><?php echo $dataUser['nama']; ?></h2>
+                    <p class="email"><?php echo $dataUser['email']; ?></p>
+                </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
 
-        <ul class="profile__list">
-            <li class="profile__item">
-                <a class="profile__link" href="edit.php"><i class="bx bx-pencil"></i>Edit akun</a>
+            <ul class="profile__list">
+                <li class="profile__item">
+                    <a class="profile__link" href="edit.php"><i class="bx bx-pencil"></i>Edit akun</a>
+                </li>
+
+                <li class="profile__item">
+                    <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Keluar</a>
+                </li>
+            </ul>
+        <?php
+        } else {
+            // Kondisi Jika Tidak Ada SESSION
+        ?>
+            <h1 style="text-align: center;">Silahkan masuk terlebih dahulu</h1>
+
+            <li class="profile__item login__button">
+                <a class="profile__link flex profile__btn" href="login.php"><i class="bx bx-pencil"></i>Masuk</a>
             </li>
-
-            <li class="profile__item">
-                <a class="profile__link" href="proses/logout.php"><i class="bx bx-log-out"></i>Keluar</a>
-            </li>
-        </ul>
-    <?php
-    } else {
-        // Kondisi Jika Tidak Ada SESSION
-    ?>
-        <h1 style="text-align: center;">Silahkan masuk terlebih dahulu</h1>
-
-        <li class="profile__item login__button">
-            <a class="profile__link flex" href="login.php"><i class="bx bx-pencil"></i>Masuk</a>
-        </li>
-    <?php
-    }
-    ?>
+        <?php
+        }
+        ?>
+    </main>
 
     <!-- Footer -->
     <footer id="footer">
