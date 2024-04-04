@@ -69,7 +69,7 @@ if (window.matchMedia("(min-width: 968px)").matches) {
     const header = document.getElementById("header");
 
     window.addEventListener("scroll", () => {
-        let sticky = header.offsetTop;
+        let sticky = navbar.offsetTop;
 
         if (window.pageYOffset > sticky) {
             header.classList.add("scroll__header");
@@ -84,11 +84,12 @@ if (window.matchMedia("(min-width: 968px)").matches) {
     const navbar = document.getElementById("navbar");
 
     window.addEventListener("scroll", () => {
-        let sticky = navbar.offsetTop;
+        let sticky = header.offsetTop;
 
         if (window.pageYOffset > sticky) {
             navbar.classList.add("scroll__navbar");
             navbar.classList.add("shadow");
+            console.log(header)
         } else {
             navbar.classList.remove("scroll__navbar");
             navbar.classList.remove("shadow");

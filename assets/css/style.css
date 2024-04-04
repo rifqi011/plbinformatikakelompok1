@@ -94,16 +94,6 @@ body {
     text-align: center;
 }
 
-.search__bar {
-    width: 100%;
-    border: 2px solid var(--gray-color);
-    height: 2.5rem;
-    display: flex;
-    align-items: center;
-    padding-inline: .5rem;
-    border-radius: .5rem;
-}
-
 .profile {
     display: flex;
     flex-direction: column;
@@ -236,6 +226,16 @@ body {
     flex-direction: column;
 }
 
+.search__bar {
+    width: 100%;
+    border: 2px solid var(--gray-color);
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+    border-radius: .5rem;
+}
+
 .product__img {
     align-items: center;
     gap: 0.5rem;
@@ -332,13 +332,14 @@ input.checkbox__cart {
 .kuantitas__modal {
     justify-content: space-evenly;
     align-items: center;
+    text-align: center;
 }
 
-.kuantitas__input {
+input.kuantitas__input {
     width: calc(50px + .5rem);
     text-align: center;
     border: 2px solid var(--dark-green-color);
-    padding: 0.4rem;
+    padding-block: 0.5rem;
     border-radius: .3rem;
 }
 

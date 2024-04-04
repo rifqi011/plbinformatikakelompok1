@@ -10,6 +10,10 @@
         margin-inline: auto;
     }
 
+    .section {
+        padding-block-start: 120px;
+    }
+
     /* Header */
     #header {
         position: fixed;
@@ -75,7 +79,19 @@
     }
 
     /* Home */
-    #home {
-        padding-block-start: 120px;
+    .home__slide img {
+        aspect-ratio: 20/6;
+    }
+
+    /* Modal */
+    .modal__pesan {
+        width: 40%;
+        left: 0;
+        right: 0;
+        margin-inline: auto;
+    }
+
+    .modal__header i {
+        cursor: pointer;
     }
 }
