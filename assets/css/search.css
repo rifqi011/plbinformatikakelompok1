@@ -71,3 +71,22 @@ body {
     border-radius: .5rem;
     grid-area: btn__checkout;
 }
+
+
+@media screen and (min-width: 968px) {
+    #header {
+        width: 50%;
+        margin-inline: auto;
+    }
+    #main {
+        width: 40%;
+        margin-inline: auto;
+    }
+
+    .profile__btn {
+        width: 25%;
+        justify-content: center;
+        margin-inline: auto;
+    }
+
+}

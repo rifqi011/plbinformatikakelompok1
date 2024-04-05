@@ -35,7 +35,7 @@ $id = $_GET['id'];
     <hr>
 
     <!-- Form -->
-    <form action="proses/keranjang.php" method="post">
+    <form action="proses/keranjang.php" method="post" id="main">
         <div class="search__body">
             <img src="assets/img/barang/<?php echo $brg['foto']; ?>" class="search__img" alt="">
     

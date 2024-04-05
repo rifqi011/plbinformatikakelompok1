@@ -94,4 +94,9 @@
     .modal__header i {
         cursor: pointer;
     }
+
+    /* Search */
+    #search {
+        width: 50%;
+    }
 }
