@@ -96,7 +96,15 @@
     }
 
     /* Search */
-    #search {
+    #search,
+    #cart {
         width: 50%;
+        margin-inline: auto;
+    }
+
+    .checkout__container {
+        width: 40%;
+        left: 0;
+        right: 0;
     }
 }
