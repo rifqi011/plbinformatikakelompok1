@@ -89,7 +89,6 @@ if (window.matchMedia("(min-width: 968px)").matches) {
         if (window.pageYOffset > sticky) {
             navbar.classList.add("scroll__navbar");
             navbar.classList.add("shadow");
-            console.log(header)
         } else {
             navbar.classList.remove("scroll__navbar");
             navbar.classList.remove("shadow");
