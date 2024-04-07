@@ -2,6 +2,9 @@
 <?php
 @session_start();
 include '../koneksi.php';
+
+$toko = mysqli_query($connect, "SELECT * FROM setting");
+$namatoko = mysqli_fetch_array($toko);
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +13,7 @@ include '../koneksi.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar - Toko</title>
+    <title>Daftar - <?php echo $namatoko['nama']; ?></title>
     <link rel="stylesheet" href="../assets/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

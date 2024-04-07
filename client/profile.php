@@ -9,6 +9,9 @@ $sesion = $_SESSION['user'];
 // Query Tabel pengunjung dan Fetch Tabel
 $User = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$sesion'");
 $dataUser = mysqli_fetch_array($User);
+
+$toko = mysqli_query($connect, "SELECT * FROM setting");
+$namatoko = mysqli_fetch_array($toko);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +20,7 @@ $dataUser = mysqli_fetch_array($User);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile - Toko</title>
+    <title>Profile - <?php echo $namatoko['nama']; ?></title>
     <link rel="stylesheet" href="../assets/css/profile.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>

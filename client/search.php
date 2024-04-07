@@ -4,6 +4,9 @@
 include '../koneksi.php';
 // GET id barang
 $id = $_GET['id'];
+
+$toko = mysqli_query($connect, "SELECT * FROM setting");
+$namatoko = mysqli_fetch_array($toko);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +15,7 @@ $id = $_GET['id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko</title>
+    <title>Cari - <?php echo $namatoko['nama']; ?></title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../assets/css/search.css">
 </head>

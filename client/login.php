@@ -8,6 +8,9 @@ if (isset($_SESSION['user'])) {
     // Halaman yang Dituju
     header('Location: index.php');
 }
+
+$toko = mysqli_query($connect, "SELECT * FROM setting");
+$namatoko = mysqli_fetch_array($toko);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +19,7 @@ if (isset($_SESSION['user'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk - Toko</title>
+    <title>Masuk - <?php echo $namatoko['nama']; ?></title>
     <link rel="stylesheet" href="../assets/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
