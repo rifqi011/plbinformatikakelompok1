@@ -287,7 +287,7 @@ keyword.addEventListener("keyup", () => {
         }
     };
 
-    xhr.open("GET", "assets/ajax/data.php?keyword=" + keyword.value, true);
+    xhr.open("GET", "ajax/data.php?keyword=" + keyword.value, true);
     xhr.send();
 });
 

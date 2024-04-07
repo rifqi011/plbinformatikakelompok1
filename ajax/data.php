@@ -1,5 +1,5 @@
 <?php
-include '../../koneksi.php';
+include '../koneksi.php';
 $keyword = $_GET['keyword'];
 
 // Periksa apakah keyword kosong
