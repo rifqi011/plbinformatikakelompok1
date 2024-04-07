@@ -97,13 +97,21 @@
 
     /* Search */
     #search,
-    #cart {
+    #cart,
+    #buy {
         width: 50%;
         margin-inline: auto;
     }
 
     .checkout__container {
         width: 40%;
+        left: 0;
+        right: 0;
+    }
+
+    /* Transaction */
+    .popup {
+        width: 50%;
         left: 0;
         right: 0;
     }
