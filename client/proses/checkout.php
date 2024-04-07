@@ -1,6 +1,6 @@
 <?php
 session_start();
-include '../koneksi.php';
+include '../../koneksi.php';
 $email =  $_SESSION['user'];
 
 date_default_timezone_set('Asia/Jakarta');
@@ -55,5 +55,5 @@ foreach ($_SESSION['cart'] as $cart => $val) {
 }
 
 unset($_SESSION['cart']);
-header('Location: ../index.php');
-$_SESSION['sukses'] = "Pembelian berhasil. silahkan pantau di menu pembelian";
+header('Location: ../../index.php');
+$_SESSION['sukses'] = "Pembelian berhasil. Silahkan pantau di menu pembelian";

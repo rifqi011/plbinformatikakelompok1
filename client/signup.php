@@ -1,7 +1,7 @@
 <!-- Start Session & Include koneksi.php -->
 <?php
 @session_start();
-include 'koneksi.php';
+include '../koneksi.php';
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@ include 'koneksi.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar - Toko</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -20,7 +20,7 @@ include 'koneksi.php';
     <!-- Header -->
     <header id="header">
         <div class="login__header flex">
-            <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
+            <a href="../index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Daftar</h1>
         </div>
     </header>
