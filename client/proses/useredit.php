@@ -1,27 +1,7 @@
 <?php
 @session_start();
 
-include '../koneksi.php';
-
-// if (isset($_POST['simpan'])) {
-//     $nama       = $_POST['nama'];
-//     $kelas      = $_POST['kelas'];
-//     // $email      = $_POST['nama'];
-//     // $password   = $_POST['password'];
-
-//     $sql = "UPDATE pengunjung SET 
-//         nama        = '$nama',
-//         kelas       = '$kelas'";
-//         /* email       = '$email',
-//         password    = '$password'"; */
-
-//     $query = mysqli_query($connect, $sql);
-// }
-// if($query) {
-//     $_SESSION['sukses'] = "Data Berhasil di Ubah";
-//     header('Location: ../profile.php');
-
-// }
+include '../../koneksi.php';
 
 function simpan($data)
 {
@@ -47,10 +27,10 @@ function simpan($data)
 
 if (isset($_POST['simpan'])) {
     if (simpan($_POST)) {
-        header('Location: ../profile.php');
+        header('Location: ../../../profile.php');
         $_SESSION['sukses'] = "Data Berhasil di Ubah";
     } else {
-        header('Location: ../edit.php');
+        header('Location: ../../../edit.php');
         $_SESSION['gagal'] = "Data Gagal di Ubah";
     }
 }

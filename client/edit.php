@@ -1,13 +1,13 @@
 <?php
 @session_start();
-include 'koneksi.php';
+include '../koneksi.php';
 $email = $_SESSION['user'];
 
 $sql = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'");
 $data = mysqli_fetch_array($sql);
 
 if (!isset($_SESSION['user'])) {
-    header('Location: index.php');
+    header('Location: ../../../index.php');
 }
 ?>
 
@@ -26,7 +26,7 @@ if (!isset($_SESSION['user'])) {
 <body>
     <header id="header">
         <div class="login__header flex">
-            <a href="/plbinformatikakelompok1"><i class="bx bx-left-arrow-alt"></i></a>
+            <a href="../index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1>Edit Akun</h1>
         </div>
     </header>
