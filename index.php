@@ -57,7 +57,7 @@ $idpengunjung = $pengunjung['id'];
                 </ul>
             </nav>
 
-            <a href="profile.php" class="profile">
+            <a href="client/profile.php" class="profile">
                 <?php
                 if (!$email) {
                 ?>
@@ -149,7 +149,7 @@ $idpengunjung = $pengunjung['id'];
                     while ($brg = mysqli_fetch_array($barang)) {
                     ?>
 
-                        <form action="proses/keranjang.php" method="post" class="modal__pesan shadow" id="modal-pesan-<?php echo $brg['id']; ?>">
+                        <form action="client/proses/keranjang.php" method="post" class="modal__pesan shadow" id="modal-pesan-<?php echo $brg['id']; ?>">
                             <!-- Modal Content -->
                             <div class="modal__content">
                                 <div class="modal__header">
@@ -223,10 +223,10 @@ $idpengunjung = $pengunjung['id'];
                     $sql = mysqli_query($connect, "SELECT * FROM barang WHERE id = '$val[idbarang]'");
                     $row = mysqli_fetch_array($sql);
             ?>
-                    <form action="proses/checkout.php" method="post">
+                    <form action="client/proses/checkout.php" method="post">
                         <div class="product__content-cart flex shadow" id="cart-container-<?php echo $val['idcart']; ?>">
                             <div class="product__img flex">
-                                <a href="proses/hapuskeranjang.php?id=<?php echo $val['idbarang']; ?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
+                                <a href="client/proses/hapuskeranjang.php?id=<?php echo $val['idbarang']; ?>" class="btn btn__kuantitas"><i class="bx bx-trash"></i></a>
                                 <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
                             </div>
 
@@ -243,7 +243,7 @@ $idpengunjung = $pengunjung['id'];
                 <?php
                 }
             } else {
-                include 'sectionalt/cartimg.php';
+                echo "Keranjang kosong";
             }
                 ?>
 
