@@ -29,7 +29,7 @@ if (empty($keyword)) {
                     <?php
                     if ($row['stok'] > 0) {
                     ?>
-                        <a href="search.php?id=<?php echo $row['id']; ?>"><button class="btn btn__add btn__add-search"><i class='bx bx-cart-add'></i></button></a>
+                        <a href="client/search.php?id=<?php echo $row['id']; ?>"><button class="btn btn__add btn__add-search"><i class='bx bx-cart-add'></i></button></a>
                     <?php
                     } else {
                     ?>

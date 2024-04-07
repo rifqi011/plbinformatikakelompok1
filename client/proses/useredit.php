@@ -27,10 +27,10 @@ function simpan($data)
 
 if (isset($_POST['simpan'])) {
     if (simpan($_POST)) {
-        header('Location: ../../../profile.php');
+        header('Location: ../profile.php');
         $_SESSION['sukses'] = "Data Berhasil di Ubah";
     } else {
-        header('Location: ../../../edit.php');
+        header('Location: ../edit.php');
         $_SESSION['gagal'] = "Data Gagal di Ubah";
     }
 }

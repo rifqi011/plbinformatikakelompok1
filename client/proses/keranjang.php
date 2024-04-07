@@ -2,7 +2,7 @@
 
 @session_start();
 
-include('../koneksi.php');
+include('../../koneksi.php');
 
 date_default_timezone_set('Asia/Jakarta');
 $tanggal    = date('Y-m-d');
@@ -20,7 +20,7 @@ if (isset($_POST['tambahkeranjang'])) {
         'hargajual' => $harga
     ];
 
-    header('Location: ../index.php');
+    header('Location: ../../index.php');
     $_SESSION['sukses'] = "Barang berhasil ditambahkan ke keranjang";
 
     // // Periksa apakah idbarang sudah ada dalam tabel keranjang

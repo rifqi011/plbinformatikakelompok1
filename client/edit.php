@@ -7,7 +7,7 @@ $sql = mysqli_query($connect, "SELECT * FROM pengunjung WHERE email = '$email'")
 $data = mysqli_fetch_array($sql);
 
 if (!isset($_SESSION['user'])) {
-    header('Location: ../../../index.php');
+    header('Location: ../index.php');
 }
 ?>
 
@@ -18,7 +18,7 @@ if (!isset($_SESSION['user'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar - Toko</title>
-    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
     <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.5/dist/sweetalert2.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>

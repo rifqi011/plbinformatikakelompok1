@@ -16,7 +16,7 @@ if (isset($_POST['login'])) {
         // Cek password
         $row = mysqli_fetch_assoc($result);
         if (password_verify($password, $row['password'])) {
-            header("Location: ../../../../index.php");
+            header("Location: ../../index.php");
             $_SESSION['user'] = $email;
             $_SESSION['sukses'] = "Selamat Datang ".$row['nama'];
             exit;

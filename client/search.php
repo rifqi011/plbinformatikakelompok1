@@ -1,7 +1,7 @@
 <!-- Start Session & Include koneksi.php -->
 <?php
 @session_start();
-include 'koneksi.php';
+include '../koneksi.php';
 // GET id barang
 $id = $_GET['id'];
 ?>
@@ -14,7 +14,7 @@ $id = $_GET['id'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toko</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="assets/css/search.css">
+    <link rel="stylesheet" href="../assets/css/search.css">
 </head>
 
 <body>
@@ -27,7 +27,7 @@ $id = $_GET['id'];
     <!-- Header -->
     <div id="header">
         <div class="search__header flex">
-            <a href="index.php"><i class="bx bx-left-arrow-alt"></i></a>
+            <a href="../index.php"><i class="bx bx-left-arrow-alt"></i></a>
             <h1><?php echo $brg['nama']; ?></h1>
         </div>
     </div>
@@ -37,7 +37,7 @@ $id = $_GET['id'];
     <!-- Form -->
     <form action="proses/keranjang.php" method="post" id="main">
         <div class="search__body">
-            <img src="assets/img/barang/<?php echo $brg['foto']; ?>" class="search__img" alt="">
+            <img src="../assets/img/barang/<?php echo $brg['foto']; ?>" class="search__img" alt="">
     
             <h1><?php echo $brg['nama']; ?></h1>
     
