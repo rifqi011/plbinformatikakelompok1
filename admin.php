@@ -26,7 +26,7 @@ $user = $_SESSION['user'];
     <?php
     if (isset($user)) {
     ?>
-        <h1>Halo</h1>
+        <a href="admin/prosesadmin/logoutadmin.php">Log out</a>
     <?php
     } else {
         header("Location: login.php");
