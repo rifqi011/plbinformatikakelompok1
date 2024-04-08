@@ -8,7 +8,7 @@ $toko = mysqli_query($connect, "SELECT * FROM setting");
 $namatoko = mysqli_fetch_array($toko);
 
 // Kondisi Jika Terdapat SESSION maka Tidak Bisa Masuk Halaman Ini
-if (isset($_SESSION['user'])) {
+if (isset($_SESSION['admin'])) {
     // Halaman yang Dituju
     header('Location: admin.php');
 }

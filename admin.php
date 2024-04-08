@@ -8,7 +8,7 @@ $toko = mysqli_query($connect, "SELECT * FROM setting");
 $namatoko = mysqli_fetch_array($toko);
 
 // Session harus login sebelum mengakses admin
-$user = $_SESSION['user'];
+$user = $_SESSION['admin'];
 ?>
 
 <!DOCTYPE html>

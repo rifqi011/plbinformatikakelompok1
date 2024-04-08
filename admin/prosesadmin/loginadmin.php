@@ -15,8 +15,8 @@ if(isset($_POST['login'])) {
         $row = mysqli_fetch_assoc($result);
         if ($password == $row['password']) {
             header("Location: ../../admin.php");
-            $_SESSION['user'] = $user;
-            $_SESSION['sukses'] = "Selamat Datang";
+            $_SESSION['admin'] = $user;
+            $_SESSION['sukses'] = "Selamat Datang ".$row['nama'];
             exit;
         }
         else {
