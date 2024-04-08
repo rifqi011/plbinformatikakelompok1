@@ -1,0 +1,43 @@
+@import url(../../assets/css/variable.css);
+
+body {
+    background-color: var(--white-color);
+    overflow-x: hidden;
+    font-family: var(--main-font);
+}
+
+.login__content {
+    padding: 2rem;
+    flex-direction: column;
+    gap: 2rem;
+    width: 30%;
+    margin-inline: auto;
+}
+
+.headline {
+    font-size: 3rem;
+    text-align: center;
+}
+
+input {
+    border: 2px solid var(--gray-color);
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.login__form {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.btn__login {
+    background-color: var(--dark-green-color);
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: .5rem;
+    width: auto;
+    color: var(--white-color);
+    width: 18%;
+}

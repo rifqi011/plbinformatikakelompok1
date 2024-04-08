@@ -30,7 +30,7 @@ $namatoko = mysqli_fetch_array($toko);
     <hr>
 
     <section class="login__content flex">
-        <h1 class="headline">Selamat datang </h1>
+        <h1 class="headline">Selamat datang</h1>
 
         <!-- Form -->
         <form method="post" action="proses/usersignup.php" class="login__form flex">
