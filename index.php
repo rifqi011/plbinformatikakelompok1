@@ -53,7 +53,7 @@ $idpengunjung = $pengunjung['id'];
                         <a href="#" class="nav__link flex" data-section="cart"><i class='bx bx-cart'></i>Keranjang</a>
                     </li>
                     <li class="nav__item">
-                        <a href="#" class="nav__link flex" data-section="buy"><i class='bx bx-notepad'></i>Pembelian</a>
+                        <a href="#" class="nav__link flex" data-section="buy"><i class='bx bx-receipt'></i>Pembelian</a>
                     </li>
                 </ul>
             </nav>

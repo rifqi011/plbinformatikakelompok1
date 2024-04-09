@@ -1,1 +1,97 @@
 @import url(../../assets/css/variable.css);
+
+body {
+    background-color: var(--white-color);
+    font-family: var(--main-font);
+    overflow-y: overlay;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    margin-inline: auto;
+}
+
+.section {
+    padding-block: 30px 70px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Header */
+#header {
+    position: relative;
+    background-color: var(--white-color);
+    width: 100%;
+}
+
+.nav__container {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    color: var(--dark-green-color);
+}
+
+#navbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
+    border-radius: 1rem 1rem 0 0;
+    z-index: 99;
+}
+
+.scroll__navbar {
+    animation: navbar .5s ease forwards;
+}
+
+@keyframes navbar {
+    0% {transform: translateY(100%);}
+    100% {transform: translateY(0);}
+}
+
+.nav__list {
+    justify-content: space-between;
+    padding: 1rem 2rem;
+}
+
+.nav__link {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+}
+
+.nav__link i {
+    font-size: var(--font-size-15);
+    position: relative;
+}
+
+.active-link::before {
+    content: '';
+    position: absolute;
+    text-align: center;
+    top: 0;
+    height: 3px;
+    width: 50px;
+    background-color: var(--red-color);
+    text-align: center;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.profile__img {
+    width: 35px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    border: 2px solid var(--dark-green-color);
+    padding: 3px;
+    object-fit: cover;
+}

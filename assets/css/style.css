@@ -20,19 +20,6 @@ body {
     display: none;
 }
 
-/* Mobile only */
-/* #desktop {
-    display: none;
-}
-#mobile {
-    display: none;
-} */
-
-/* #modal-confirm {
-    border: 1px solid #000;
-    position: absolute;
-} */
-
 /* Header */
 #header {
     position: relative;

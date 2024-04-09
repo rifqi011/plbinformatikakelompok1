@@ -22,9 +22,9 @@ navLinks.forEach((link) => {
                         icon.classList.remove("bxs-cart");
                         icon.classList.add("bx-cart");
                         break;
-                    case "bx bxs-notepad":
-                        icon.classList.remove("bxs-notepad");
-                        icon.classList.add("bx-notepad");
+                    case "bx bxs-receipt":
+                        icon.classList.remove("bxs-receipt");
+                        icon.classList.add("bx-receipt");
                         break;
                 }
             }
@@ -51,9 +51,9 @@ navLinks.forEach((link) => {
                         icon.classList.remove("bx-cart");
                         icon.classList.add("bxs-cart");
                         break;
-                    case "bx bx-notepad":
-                        icon.classList.remove("bx-notepad");
-                        icon.classList.add("bxs-notepad");
+                    case "bx bx-receipt":
+                        icon.classList.remove("bx-receipt");
+                        icon.classList.add("bxs-receipt");
                         break;
                 }
             }
