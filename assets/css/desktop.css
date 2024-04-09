@@ -88,7 +88,13 @@
         width: 40%;
         left: 0;
         right: 0;
+        bottom: -110% !important;
         margin-inline: auto;
+        max-height: 100%;
+    }
+
+    .modal-show {
+        bottom: 0 !important;
     }
 
     .modal__header i {
