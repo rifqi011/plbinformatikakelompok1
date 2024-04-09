@@ -2,6 +2,7 @@
 <?php
 @session_start();
 include 'koneksi.php';
+$tanggal    = date('Y-m-d');
 
 // Query Tabel setting dan Fetch Tabel
 $toko = mysqli_query($connect, "SELECT * FROM setting");
@@ -147,6 +148,9 @@ $idpengunjung = $pengunjung['id'];
                     <?php
                     $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]'");
                     while ($brg = mysqli_fetch_array($barang)) {
+                        // query terjual hari ini
+                        $terjual = mysqli_query($connect, "SELECT SUM(k.jumlah) as jumlah, k.idbarang, k.idtransaksi, p.tanggal, b.id , p.id FROM keranjang k, penjualan p, barang b WHERE k.idtransaksi = p.id AND k.idbarang = b.id AND b.id = '$brg[id]' AND p.tanggal='$tanggal'");
+                        $tjl = mysqli_fetch_array($terjual);
                     ?>
 
                         <form action="client/proses/keranjang.php" method="post" class="modal__pesan shadow" id="modal-pesan-<?php echo $brg['id']; ?>">
@@ -167,6 +171,7 @@ $idpengunjung = $pengunjung['id'];
                                         <h1><?php echo $brg['nama']; ?></h1>
                                         <p>Harga: Rp.<?php echo number_format($brg['hargajual']) . "/" . $brg['satuan']; ?></p>
                                         <p>Stok: <?php echo $brg['stok']; ?></p>
+                                        <p>Terjual hari ini: <?php echo $tjl['jumlah']; ?></p>
                                         <p><?php echo $brg['keterangan']; ?></p>
                                     </div>
 
