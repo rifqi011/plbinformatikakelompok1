@@ -101,6 +101,16 @@ body {
 }
 
 /* Product Section */
+.search__bar {
+    width: 100%;
+    border: 2px solid var(--gray-color);
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+    border-radius: .5rem;
+}
+
 .product__card {
     flex-direction: column;
 }

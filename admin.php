@@ -89,6 +89,13 @@ $user = "Rifqi";
         <section id="produk" class="produk section container flex hidden">
             <h1>Produk</h1>
 
+            <!-- Search bar -->
+            <form action="" method="post" class="search__bar">
+                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu..." autofocus>
+            </form>
+
+            <hr>
+
             <!-- Product Card -->
             <div class="product__card">
                 <div class="product__content flex shadow">
