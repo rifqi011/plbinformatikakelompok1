@@ -88,6 +88,24 @@ $user = "Rifqi";
         <!-- Produk -->
         <section id="produk" class="produk section container flex hidden">
             <h1>Produk</h1>
+
+            <!-- Product Card -->
+            <div class="product__card">
+                <div class="product__content flex shadow">
+                    <div class="product__img flex">
+                        <a href="" class="btn btn__edit"><i class="bx bx-edit-alt"></i></a>
+                        <img src="assets/img/barang/aqua.png" alt="">
+                    </div>
+
+                    <div class="product__data">
+                        <p>Nama: Aqua</p>
+                        <p>Stok: 14</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add button -->
+            <button class="btn btn__add"><i class='bx bx-plus'></i></button>
         </section>
 
         <!-- Penjualan -->
