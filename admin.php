@@ -98,9 +98,9 @@ $user = "Rifqi";
 
             <!-- Product Card -->
             <div class="product__card">
-                <div class="product__content flex shadow">
+                <div class="product__content flex shadow" onclick="productPopUp(1)">
                     <div class="product__img flex">
-                        <a href="" class="btn btn__edit"><i class="bx bx-edit-alt"></i></a>
+                        <div class="btn btn__edit"><i class="bx bx-edit-alt"></i></div>
                         <img src="assets/img/barang/aqua.png" alt="">
                     </div>
 
@@ -109,6 +109,10 @@ $user = "Rifqi";
                         <p>Stok: 14</p>
                     </div>
                 </div>
+            </div>
+            <!-- Pop up -->
+            <div id="product-popup-1" class="popup">
+                <h1>Tes</h1>
             </div>
 
             <!-- Add button -->

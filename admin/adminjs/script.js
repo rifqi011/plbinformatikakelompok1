@@ -147,3 +147,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 // ---------- Change Section end ---------- //
+
+// ---------- Pop up ---------- //
+function productPopUp(id) {
+    const card = document.getElementById(`product-popup-${id}`);
+
+    card.classList.add("show-popup")
+}
+// ---------- Pop up end ---------- //

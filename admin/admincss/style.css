@@ -146,3 +146,12 @@ body {
     padding: .7rem;
     border-radius: .5rem;
 }
+
+/* Product Popup */
+.popup {
+    display: none;
+}
+
+.show-popup {
+    display: block;
+}
