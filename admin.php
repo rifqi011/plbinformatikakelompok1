@@ -112,7 +112,19 @@ $user = "Rifqi";
             </div>
             <!-- Pop up -->
             <div id="product-popup-1" class="popup">
-                <h1>Tes</h1>
+                <div class="popup__header flex">
+                    <h2 class="section__title">Aqua</h2>
+                    <i class="bx bx-x popup__close" id="popup-close-<?php echo $buy['id']; ?>"></i>
+                </div>
+                
+                <hr class="hr-pop">
+
+                <div class="popup__body">
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                </div>
+
             </div>
 
             <!-- Add button -->
