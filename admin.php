@@ -60,7 +60,7 @@ $user = "Rifqi";
                 </ul>
             </nav>
 
-            <a href="client/profile.php" class="profile">
+            <a href="" class="profile">
                 <?php
                 if (!$email) {
                 ?>
@@ -98,14 +98,18 @@ $user = "Rifqi";
 
             <!-- Product Card -->
             <div class="product__card">
-                <div class="product__content flex shadow" onclick="productPopUp(1)">
+                <div class="product__content flex shadow">
                     <div class="product__img flex">
                         <img src="assets/img/barang/aqua.png" alt="">
                     </div>
 
-                    <div class="product__data">
-                        <p>Nama: Aqua</p>
-                        <p>Stok: 14</p>
+                    <div class="product__data flex">
+                        <h1>Aqua</h1>
+                        <div class="product__btn">
+                            <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
+                            <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
+                            <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(1)"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -122,11 +126,6 @@ $user = "Rifqi";
                     <p>Lorem, ipsum dolor.</p>
                     <p>Lorem, ipsum dolor.</p>
                     <p>Lorem, ipsum dolor.</p>
-                </div>
-
-                <div class="popup__footer">
-                    <a href="" class="btn btn__edit"><i class="bx bx-edit-alt"></i>Edit</a>
-                    <a href="" class="btn btn__delete"><i class="bx bx-trash"></i>Hapus</a>
                 </div>
             </div>
 

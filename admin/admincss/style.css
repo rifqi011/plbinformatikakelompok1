@@ -172,13 +172,20 @@ body {
     display: block !important;
 }
 
-.popup__footer {
+.product__data {
+    width: 60%;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.product__btn {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .btn__edit,
-.btn__delete {
+.btn__minus,
+.btn__info {
     color: var(--white-color);
     padding: .7rem;
     border-radius: .5rem;
@@ -188,6 +195,10 @@ body {
     background-color: var(--dark-green-color);
 }
 
-.btn__delete {
+.btn__minus {
     background-color: var(--red-color);
+}
+
+.btn__info {
+    background-color: var(--gray-color);
 }
