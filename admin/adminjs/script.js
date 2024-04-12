@@ -151,7 +151,12 @@ document.addEventListener("DOMContentLoaded", function () {
 // ---------- Pop up ---------- //
 function productPopUp(id) {
     const card = document.getElementById(`product-popup-${id}`);
+    const closeBtn = document.getElementById(`popup-close-${id}`);
 
-    card.classList.add("show-popup")
+    card.classList.add("show-popup");
+
+    closeBtn.addEventListener("click", () => {
+        card.classList.remove("show-popup");
+    });
 }
 // ---------- Pop up end ---------- //
