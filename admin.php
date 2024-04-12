@@ -100,7 +100,6 @@ $user = "Rifqi";
             <div class="product__card">
                 <div class="product__content flex shadow" onclick="productPopUp(1)">
                     <div class="product__img flex">
-                        <div class="btn btn__edit"><i class="bx bx-edit-alt"></i></div>
                         <img src="assets/img/barang/aqua.png" alt="">
                     </div>
 
@@ -114,9 +113,9 @@ $user = "Rifqi";
             <div id="product-popup-1" class="popup">
                 <div class="popup__header flex">
                     <h2 class="section__title">Aqua</h2>
-                    <i class="bx bx-x popup__close" id="popup-close-<?php echo $buy['id']; ?>"></i>
+                    <i class="bx bx-x popup__close" id="popup-close-1"></i>
                 </div>
-                
+
                 <hr class="hr-pop">
 
                 <div class="popup__body">
@@ -125,6 +124,10 @@ $user = "Rifqi";
                     <p>Lorem, ipsum dolor.</p>
                 </div>
 
+                <div class="popup__footer">
+                    <a href="" class="btn btn__edit"><i class="bx bx-edit-alt"></i>Edit</a>
+                    <a href="" class="btn btn__delete"><i class="bx bx-trash"></i>Hapus</a>
+                </div>
             </div>
 
             <!-- Add button -->

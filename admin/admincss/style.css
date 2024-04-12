@@ -130,13 +130,6 @@ body {
     width: 100px;
 }
 
-.btn__edit {
-    background-color: var(--dark-green-color);
-    color: var(--white-color);
-    padding: .7rem;
-    border-radius: .5rem;
-}
-
 .btn__add {
     background-color: var(--dark-green-color);
     color: var(--white-color);
@@ -177,4 +170,24 @@ body {
 
 .show-popup {
     display: block !important;
+}
+
+.popup__footer {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.btn__edit,
+.btn__delete {
+    color: var(--white-color);
+    padding: .7rem;
+    border-radius: .5rem;
+}
+
+.btn__edit {
+    background-color: var(--dark-green-color);
+}
+
+.btn__delete {
+    background-color: var(--red-color);
 }
