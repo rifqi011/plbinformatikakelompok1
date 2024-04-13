@@ -105,11 +105,13 @@ $user = "Rifqi";
 
                     <div class="product__data flex">
                         <h1>Aqua</h1>
-                        <div class="product__btn">
-                            <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
-                            <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
-                            <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(1)"></i></div>
-                        </div>
+                        <p>Stok: 14</p>
+                    </div>
+
+                    <div class="product__btn flex">
+                        <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
+                        <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
+                        <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(1)"></i></div>
                     </div>
                 </div>
             </div>

@@ -127,7 +127,7 @@ body {
 }
 
 .product__img img {
-    width: 100px;
+    width: 120px;
 }
 
 .btn__add {
@@ -179,16 +179,17 @@ body {
 }
 
 .product__btn {
-    display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .btn__edit,
 .btn__minus,
 .btn__info {
     color: var(--white-color);
-    padding: .7rem;
+    padding: .5rem;
     border-radius: .5rem;
+    font-size: 20px;
 }
 
 .btn__edit {
