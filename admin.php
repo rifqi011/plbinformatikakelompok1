@@ -111,7 +111,7 @@ $user = "Rifqi";
                             <div class="product__data flex">
                                 <h1><?php echo $brg['nama']; ?></h1>
                                 <p>Stok: <?php echo $brg['stok']; ?></p>
-                                <p>Suplier: Toko A</p>
+                                <p>Suplier: <?php echo $brg['suplier']; ?></p>
                             </div>
 
                             <div class="product__btn flex">
@@ -125,6 +125,9 @@ $user = "Rifqi";
                 }
                 ?>
             </div>
+            <br>
+            <br>
+            <br>
 
             <!-- Pop up -->
             <?php
@@ -150,7 +153,23 @@ $user = "Rifqi";
             ?>
 
             <!-- Add button -->
-            <button class="btn btn__add"><i class='bx bx-plus'></i></button>
+            <button class="btn btn__add" onclick="barangAdd(1)"><i class='bx bx-plus'></i></button>
+
+            <!-- Modal Add -->
+            <form action="" method="post" id="add-popup-1" class="popup">
+                <div class="popup__header flex">
+                    <h2 class="section__title">Tambah Barang</h2>
+                    <i class="bx bx-x popup__close" id="add-close-1"></i>
+                </div>
+
+                <hr class="hr-pop">
+
+                <div class="popup__body">
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                    <p>Lorem, ipsum dolor.</p>
+                </div>
+            </form>
         </section>
 
         <!-- Penjualan -->

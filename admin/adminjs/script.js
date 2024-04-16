@@ -148,10 +148,10 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 // ---------- Change Section end ---------- //
 
-// ---------- Pop up ---------- //
+// ---------- Pop up Barang ---------- //
 function productPopUp(id) {
     const card = document.getElementById(`product-popup-${id}`);
-    const closeBtn = document.getElementById(`popup-close-${id}`);
+    const closeBtn = document.getElementById(`close-${id}`);
 
     card.classList.add("show-popup");
 
@@ -159,7 +159,7 @@ function productPopUp(id) {
         card.classList.remove("show-popup");
     });
 }
-// ---------- Pop up end ---------- //
+// ---------- Pop up Barang end ---------- //
 
 // ---------- Live Searching ---------- //
 const keyword = document.getElementById("search-input");
@@ -179,3 +179,16 @@ keyword.addEventListener("keyup", () => {
     xhr.send();
 });
 // ---------- Live Searching end ---------- //
+
+// ---------- Pop up Tambah Barang ---------- //
+function barangAdd(id) {
+    const card = document.getElementById(`add-popup-${id}`);
+    const closeBtn = document.getElementById(`add-close-${id}`);
+
+    card.classList.add("show-popup");
+
+    closeBtn.addEventListener("click", () => {
+        card.classList.remove("show-popup");
+    });
+}
+// ---------- Pop up Tambah Barang end ---------- //
