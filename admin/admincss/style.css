@@ -17,7 +17,6 @@ body {
     width: 90%;
     gap: 1rem;
     flex-direction: column;
-    height: 200vh;
 }
 
 .hidden {

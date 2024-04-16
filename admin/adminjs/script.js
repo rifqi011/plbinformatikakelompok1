@@ -160,3 +160,22 @@ function productPopUp(id) {
     });
 }
 // ---------- Pop up end ---------- //
+
+// ---------- Live Searching ---------- //
+const keyword = document.getElementById("search-input");
+const product = document.getElementById("product-search");
+
+// tambah event ketika keyword ditulis
+keyword.addEventListener("keyup", () => {
+    let xhr = new XMLHttpRequest();
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            product.innerHTML = xhr.responseText;
+        }
+    };
+
+    xhr.open("GET", "ajax/ajaxadmin.php?keyword=" + keyword.value, true);
+    xhr.send();
+});
+// ---------- Live Searching end ---------- //

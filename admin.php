@@ -96,33 +96,35 @@ $user = "Rifqi";
 
             <hr>
 
-            <!-- Product Card -->
-            <?php
-            $barang = mysqli_query($connect, "SELECT * FROM barang");
-            while ($brg = mysqli_fetch_array($barang)) {
-            ?>
-                <div class="product__card">
-                    <div class="product__content flex shadow">
-                        <div class="product__img flex">
-                            <img src="assets/img/barang/<?php echo $brg['foto']; ?>" alt="">
-                        </div>
+            <div id="product-search">
+                <!-- Product Card -->
+                <?php
+                $barang = mysqli_query($connect, "SELECT * FROM barang");
+                while ($brg = mysqli_fetch_array($barang)) {
+                ?>
+                    <div class="product__card">
+                        <div class="product__content flex shadow">
+                            <div class="product__img flex">
+                                <img src="assets/img/barang/<?php echo $brg['foto']; ?>" alt="">
+                            </div>
 
-                        <div class="product__data flex">
-                            <h1><?php echo $brg['nama']; ?></h1>
-                            <p>Stok: <?php echo $brg['stok']; ?></p>
-                            <p>Suplier: Toko A</p>
-                        </div>
+                            <div class="product__data flex">
+                                <h1><?php echo $brg['nama']; ?></h1>
+                                <p>Stok: <?php echo $brg['stok']; ?></p>
+                                <p>Suplier: Toko A</p>
+                            </div>
 
-                        <div class="product__btn flex">
-                            <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
-                            <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
-                            <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(<?php echo $brg['id']; ?>)"></i></div>
+                            <div class="product__btn flex">
+                                <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
+                                <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
+                                <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(<?php echo $brg['id']; ?>)"></i></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php
-            }
-            ?>
+                <?php
+                }
+                ?>
+            </div>
 
             <!-- Pop up -->
             <?php
