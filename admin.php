@@ -97,39 +97,55 @@ $user = "Rifqi";
             <hr>
 
             <!-- Product Card -->
-            <div class="product__card">
-                <div class="product__content flex shadow">
-                    <div class="product__img flex">
-                        <img src="assets/img/barang/aqua.png" alt="">
-                    </div>
+            <?php
+            $barang = mysqli_query($connect, "SELECT * FROM barang");
+            while ($brg = mysqli_fetch_array($barang)) {
+            ?>
+                <div class="product__card">
+                    <div class="product__content flex shadow">
+                        <div class="product__img flex">
+                            <img src="assets/img/barang/<?php echo $brg['foto']; ?>" alt="">
+                        </div>
 
-                    <div class="product__data flex">
-                        <h1>Aqua</h1>
-                        <p>Stok: 14</p>
-                    </div>
+                        <div class="product__data flex">
+                            <h1><?php echo $brg['nama']; ?></h1>
+                            <p>Stok: <?php echo $brg['stok']; ?></p>
+                            <p>Suplier: Toko A</p>
+                        </div>
 
-                    <div class="product__btn flex">
-                        <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
-                        <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
-                        <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(1)"></i></div>
+                        <div class="product__btn flex">
+                            <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
+                            <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
+                            <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(<?php echo $brg['id']; ?>)"></i></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
+
             <!-- Pop up -->
-            <div id="product-popup-1" class="popup">
-                <div class="popup__header flex">
-                    <h2 class="section__title">Aqua</h2>
-                    <i class="bx bx-x popup__close" id="popup-close-1"></i>
-                </div>
+            <?php
+            $barang = mysqli_query($connect, "SELECT * FROM barang");
+            while ($brg = mysqli_fetch_array($barang)) {
+            ?>
+                <div id="product-popup-<?php echo $brg['id']; ?>" class="popup">
+                    <div class="popup__header flex">
+                        <h2 class="section__title"><?php echo $brg['nama']; ?></h2>
+                        <i class="bx bx-x popup__close" id="popup-close-<?php echo $brg['id']; ?>"></i>
+                    </div>
 
-                <hr class="hr-pop">
+                    <hr class="hr-pop">
 
-                <div class="popup__body">
-                    <p>Lorem, ipsum dolor.</p>
-                    <p>Lorem, ipsum dolor.</p>
-                    <p>Lorem, ipsum dolor.</p>
+                    <div class="popup__body">
+                        <p>Lorem, ipsum dolor.</p>
+                        <p>Lorem, ipsum dolor.</p>
+                        <p>Lorem, ipsum dolor.</p>
+                    </div>
                 </div>
-            </div>
+            <?php
+            }
+            ?>
 
             <!-- Add button -->
             <button class="btn btn__add"><i class='bx bx-plus'></i></button>

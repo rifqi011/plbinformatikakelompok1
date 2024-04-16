@@ -127,7 +127,7 @@ body {
 }
 
 .product__img img {
-    width: 120px;
+    width: 80px;
 }
 
 .btn__add {
@@ -180,7 +180,7 @@ body {
 
 .product__btn {
     flex-direction: column;
-    justify-content: space-evenly;
+    gap: 10px;
 }
 
 .btn__edit,
