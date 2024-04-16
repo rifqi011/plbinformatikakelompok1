@@ -156,7 +156,7 @@ $user = "Rifqi";
             <button class="btn btn__add" onclick="barangAdd(1)"><i class='bx bx-plus'></i></button>
 
             <!-- Modal Add -->
-            <form action="" method="post" id="add-popup-1" class="popup">
+            <form action="admin/prosesadmin/tambahbarang.php" method="post" id="add-popup-1" class="popup">
                 <div class="popup__header flex">
                     <h2 class="section__title">Tambah Barang</h2>
                     <i class="bx bx-x popup__close" id="add-close-1"></i>
@@ -165,9 +165,35 @@ $user = "Rifqi";
                 <hr class="hr-pop">
 
                 <div class="popup__body">
-                    <p>Lorem, ipsum dolor.</p>
-                    <p>Lorem, ipsum dolor.</p>
-                    <p>Lorem, ipsum dolor.</p>
+                    <div class="add__input">
+                        <label for="nama">Masukan Nama</label>
+                        <input type="text" name="nama" id="nama">
+                    </div>
+                    
+                    <div class="add__input">
+                        <label for="nama">Masukan Nama</label>
+                        <input type="text" name="nama" id="nama">
+                    </div>
+
+                    <div class="add__input">
+                        <label for="hargabeli">Masukan Harga Beli</label>
+                        <input type="text" name="hargabeli" id="hargabeli">
+                    </div>
+
+                    <div class="add__input">
+                        <label for="hargajual">Masukan Harga Jual</label>
+                        <input type="text" name="hargajual" id="hargajual">
+                    </div>
+
+                    <div class="add__input">
+                        <label for="suplier">Masukan Suplier</label>
+                        <input type="text" name="suplier" id="suplier">
+                    </div>
+
+                    <div class="add__input">
+                        <label for="satuan">Masukan Satuan</label>
+                        <input type="text" name="satuan" id="satuan">
+                    </div>
                 </div>
             </form>
         </section>

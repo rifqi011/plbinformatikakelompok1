@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // ---------- Pop up Barang ---------- //
 function productPopUp(id) {
     const card = document.getElementById(`product-popup-${id}`);
-    const closeBtn = document.getElementById(`close-${id}`);
+    const closeBtn = document.getElementById(`popup-close-${id}`);
 
     card.classList.add("show-popup");
 
