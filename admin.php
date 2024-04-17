@@ -143,7 +143,7 @@ $user = "Rifqi";
                     <hr class="hr-pop">
 
                     <div class="popup__body">
-                        <p>Lorem, ipsum dolor.</p>
+                        <p>Lorem, ipsxum dolor.</p>
                         <p>Lorem, ipsum dolor.</p>
                         <p>Lorem, ipsum dolor.</p>
                     </div>
@@ -169,10 +169,18 @@ $user = "Rifqi";
                         <label for="nama">Masukan Nama</label>
                         <input type="text" name="nama" id="nama">
                     </div>
-                    
+
                     <div class="add__input">
                         <label for="nama">Masukan Nama</label>
-                        <input type="text" name="nama" id="nama">
+                        <select name="kategori" id="kategori">
+                            <?php
+                            $sql = mysqli_query($connect, "SELECT * FROM kategori");
+                            while ($data = mysqli_fetch_array($sql)) { ?>
+                                <option value="<?= $data['kategori'] ?>"><?= $data['kategori'] ?></option>
+                            <?php }
+                            ?>
+
+                        </select>
                     </div>
 
                     <div class="add__input">
@@ -193,6 +201,10 @@ $user = "Rifqi";
                     <div class="add__input">
                         <label for="satuan">Masukan Satuan</label>
                         <input type="text" name="satuan" id="satuan">
+                    </div>
+                    <div class="add__input">
+                        <label for="satuan">Masukan Satuan</label>
+                        <input type="file" name="satuan" id="satuan">
                     </div>
                 </div>
             </form>

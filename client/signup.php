@@ -56,7 +56,7 @@ $namatoko = mysqli_fetch_array($toko);
             </div>
             <div class="login__group">
                 <label for="alamat">Masukan Alamat</label>
-                <input autocomplete="off" type="password" name="alamat" id="alamat">
+                <input autocomplete="off" type="text" name="alamat" id="alamat">
             </div>
             <button class="btn btn__login" type="submit" name="signup">Daftar</button>
             <p class="signup__link">Sudah punya akun?&nbsp;<a href="login.php">Masuk</a></p>
