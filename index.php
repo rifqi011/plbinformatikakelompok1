@@ -214,7 +214,7 @@ $idpengunjung = $pengunjung['id'];
             <hr>
 
             <div id="product-search">
-                <h1>Cari Sesuatu</h1>
+                <img src="assets/img/icon/cari.png" alt="" class="image-alt">
             </div>
         </section>
 

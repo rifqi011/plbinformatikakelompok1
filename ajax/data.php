@@ -5,7 +5,9 @@ $keyword = $_GET['keyword'];
 // Periksa apakah keyword kosong
 if (empty($keyword)) {
     // Jika kosong, tampilkan pesan "Cari Sesuatu"
-    echo "<h1>Cari Sesuatu</h1>";
+?>
+    <img src="assets/img/icon/cari.png" alt="" class="image-alt">
+    <?php
 } else {
     // Jika tidak kosong, lakukan pencarian
     $query = "SELECT * FROM barang WHERE nama LIKE '%$keyword%' OR keterangan LIKE '%$keyword%'";
@@ -15,7 +17,7 @@ if (empty($keyword)) {
     if (mysqli_num_rows($data) > 0) {
         // Tampilkan hasil pencarian
         while ($row = mysqli_fetch_array($data)) {
-?>
+    ?>
             <div class="product__content flex shadow">
                 <div class="product__img flex">
                     <img src="assets/img/barang/<?php echo $row['foto']; ?>" alt="">
