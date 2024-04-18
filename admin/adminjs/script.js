@@ -192,3 +192,17 @@ function barangAdd(id) {
     });
 }
 // ---------- Pop up Tambah Barang end ---------- //
+
+// ---------- Pop up Barang ---------- //
+function editPopUp(id) {
+    const card = document.getElementById(`edit-popup-${id}`);
+    const closeBtn = document.getElementById(`edit-close-${id}`);
+
+    card.classList.add("show-popup");
+
+    closeBtn.addEventListener("click", () => {
+        card.classList.remove("show-popup");
+    });
+    console.log("hello")
+}
+// ---------- Pop up Barang end ---------- //

@@ -115,19 +115,19 @@ $user = "Rifqi";
                             </div>
 
                             <div class="product__btn flex">
-                                <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
+                                <div class="btn btn__edit" onclick="editPopUp(<?php echo $brg['id']; ?>)"><i class="bx bx-edit-alt"></i></div>
                                 <?php
                                 if ($brg['status'] == 1) {
                                 ?>
-                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id'];?>&status=0"><i class="bx bx-minus"></i></a>
+                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id']; ?>&status=0"><i class="bx bx-minus"></i></a>
                                 <?php
                                 } else {
                                 ?>
-                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id'];?>&status=1"><i class="bx bx-plus"></i></a>
+                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id']; ?>&status=1"><i class="bx bx-plus"></i></a>
                                 <?php
                                 }
                                 ?>
-                                <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(<?php echo $brg['id']; ?>)"></i></div>
+                                <div class="btn btn__info" onclick="productPopUp(<?php echo $brg['id']; ?>)"><i class='bx bx-dots-vertical-rounded'></i></div>
                             </div>
                         </div>
                     </div>
@@ -138,6 +138,9 @@ $user = "Rifqi";
             <br>
             <br>
             <br>
+
+            <!-- Add button -->
+            <button class="btn btn__add" onclick="barangAdd(1)"><i class='bx bx-plus'></i></button>
 
             <!-- Pop up -->
             <?php
@@ -153,21 +156,39 @@ $user = "Rifqi";
                     <hr class="hr-pop">
 
                     <div class="popup__body">
-                        <h3>Nama: <?php echo $brg['nama']; ?></h3><br>
-                        <h3>kategori: <?php echo $brg['kategori']; ?></h3><br>
-                        <h3>hargabeli: <?php echo $brg['hargabeli']; ?></h3><br>
-                        <h3>hargajual: <?php echo $brg['hargajual']; ?></h3><br>
-                        <h3>stok: <?php echo $brg['stok']; ?></h3><br>
-                        <h3>suplier: <?php echo $brg['suplier']; ?></h3><br>
-                        <h3>keterangan: <?php echo $brg['keterangan']; ?></h3><br>
+                        <div class="add__input">
+                            <label for="nama">Nama</label>
+                            <input autocomplete="off" type="text" name="nama" id="nama" class="input-add" value="<?php echo $brg['nama']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="nama">Kategori</label>
+                            <input autocomplete="off" type="text" name="nama" id="nama" class="input-add" value="<?php echo $brg['kategori']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="hargabeli">Harga Beli</label>
+                            <input autocomplete="off" type="text" name="hargabeli" id="hargabeli" class="input-add" value="<?php echo $brg['hargabeli']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="hargajual">Harga Jual</label>
+                            <input autocomplete="off" type="text" name="hargajual" id="hargajual" class="input-add" value="<?php echo $brg['hargajual']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="stok">Stok</label>
+                            <input autocomplete="off" type="text" name="stok" id="stok" class="input-add" value="<?php echo $brg['stok']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="suplier">Suplier</label>
+                            <input autocomplete="off" type="text" name="suplier" id="suplier" class="input-add" value="<?php echo $brg['suplier']; ?>" readonly>
+                        </div>
+                        <div class="add__input">
+                            <label for="keterangan">Keterangan</label>
+                            <input autocomplete="off" type="text" name="keterangan" id="keterangan" class="input-add" value="<?php echo $brg['keterangan']; ?>" readonly>
+                        </div>
                     </div>
                 </div>
             <?php
             }
             ?>
-
-            <!-- Add button -->
-            <button class="btn btn__add" onclick="barangAdd(1)"><i class='bx bx-plus'></i></button>
 
             <!-- Modal Add -->
             <form action="admin/prosesadmin/tambahbarang.php" method="post" id="add-popup-1" class="popup">
@@ -227,6 +248,55 @@ $user = "Rifqi";
                 </div>
                 <button name="simpan" type="submit" class="btn btn__simpan">Simpan</button>
             </form>
+
+            <!-- Modal Edit -->
+            <?php
+            $barang = mysqli_query($connect, "SELECT * FROM barang");
+            while ($brg = mysqli_fetch_array($barang)) {
+            ?>
+                <form action="admin/prosesadmin/tambahbarang.php" method="post" id="edit-popup-<?php echo $brg['id']; ?>" class="popup">
+                    <div class="popup__header flex">
+                        <h2 class="section__title">Tambah Barang</h2>
+                        <i class="bx bx-x popup__close" id="edit-close-<?php echo $brg['id']; ?>"></i>
+                    </div>
+
+                    <hr class="hr-pop">
+
+                    <div class="popup__body">
+                        <div class="add__input">
+                            <label for="nama">Nama</label>
+                            <input autocomplete="off" type="text" name="nama" id="nama" class="input-add" value="<?php echo $brg['nama']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="nama">Kategori</label>
+                            <input autocomplete="off" type="text" name="nama" id="nama" class="input-add" value="<?php echo $brg['kategori']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="hargabeli">Harga Beli</label>
+                            <input autocomplete="off" type="text" name="hargabeli" id="hargabeli" class="input-add" value="<?php echo $brg['hargabeli']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="hargajual">Harga Jual</label>
+                            <input autocomplete="off" type="text" name="hargajual" id="hargajual" class="input-add" value="<?php echo $brg['hargajual']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="stok">Stok</label>
+                            <input autocomplete="off" type="text" name="stok" id="stok" class="input-add" value="<?php echo $brg['stok']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="suplier">Suplier</label>
+                            <input autocomplete="off" type="text" name="suplier" id="suplier" class="input-add" value="<?php echo $brg['suplier']; ?>">
+                        </div>
+                        <div class="add__input">
+                            <label for="keterangan">Keterangan</label>
+                            <input autocomplete="off" type="text" name="keterangan" id="keterangan" class="input-add" value="<?php echo $brg['keterangan']; ?>">
+                        </div>
+                    </div>
+                    <button name="simpan" type="submit" class="btn btn__simpan">Simpan</button>
+                </form>
+            <?php
+            }
+            ?>
         </section>
 
         <!-- Penjualan -->
