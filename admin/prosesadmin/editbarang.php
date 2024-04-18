@@ -4,32 +4,29 @@
 include '../../koneksi.php';
 
 if (isset($_POST['simpan'])) {
+    $id               = $_POST['id'];
     $namabarang       = $_POST['nama'];
     $kategori         = $_POST['kategori'];
     $hargabeli        = $_POST['hargabeli'];
     $hargajual        = $_POST['hargajual'];
     $suplier          = $_POST['suplier'];
-    $satuan           = $_POST['satuan'];
-    $foto             = $_POST['foto'];
     $keterangan       = $_POST['keterangan'];
 
-    $sql = "INSERT INTO barang SET 
+    $sql = "UPDATE barang SET 
         nama           = '$namabarang',
         kategori       = '$kategori',
         hargabeli      = '$hargabeli',
         hargajual      = '$hargajual',
         suplier        = '$suplier',
-        satuan         = '$satuan',
-        foto           = '$foto',
-        keterangan     = '$keterangan'";
+        keterangan     = '$keterangan' WHERE id = '$id'";
 
     $query = mysqli_query($connect, $sql);
 }
     if ($query) {
         header('Location: ../../admin.php');
-        $_SESSION['sukses'] = "Barang berhasil ditambahkan";
+        $_SESSION['sukses'] = "Barang berhasil diubah";
     } else {
-        $_SESSION['gagal'] = "Gagal menambahkan barang";
+        $_SESSION['gagal'] = "Gagal mengubah barang";
         header('Location: ../../admin.php');
     }
 

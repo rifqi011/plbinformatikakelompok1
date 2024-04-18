@@ -212,9 +212,9 @@ $user = "Rifqi";
                             $sql = mysqli_query($connect, "SELECT * FROM kategori");
                             while ($data = mysqli_fetch_array($sql)) { ?>
                                 <option value="<?= $data['kategori'] ?>"><?= $data['kategori'] ?></option>
-                            <?php }
+                            <?php
+                            }
                             ?>
-
                         </select>
                     </div>
 
@@ -254,7 +254,7 @@ $user = "Rifqi";
             $barang = mysqli_query($connect, "SELECT * FROM barang");
             while ($brg = mysqli_fetch_array($barang)) {
             ?>
-                <form action="admin/prosesadmin/tambahbarang.php" method="post" id="edit-popup-<?php echo $brg['id']; ?>" class="popup">
+                <form action="admin/prosesadmin/editbarang.php" method="post" id="edit-popup-<?php echo $brg['id']; ?>" class="popup">
                     <div class="popup__header flex">
                         <h2 class="section__title">Tambah Barang</h2>
                         <i class="bx bx-x popup__close" id="edit-close-<?php echo $brg['id']; ?>"></i>
@@ -269,7 +269,15 @@ $user = "Rifqi";
                         </div>
                         <div class="add__input">
                             <label for="nama">Kategori</label>
-                            <input autocomplete="off" type="text" name="nama" id="nama" class="input-add" value="<?php echo $brg['kategori']; ?>">
+                            <select name="kategori" id="kategori">
+                                <?php
+                                $sql = mysqli_query($connect, "SELECT * FROM kategori");
+                                while ($data = mysqli_fetch_array($sql)) { ?>
+                                    <option value="<?= $data['kategori']?>" <?php if($brg['kategori'] == $data['kategori']) echo "selected"?>><?= $data['kategori'] ?></option>
+                                <?php
+                                }
+                                ?>
+                            </select>
                         </div>
                         <div class="add__input">
                             <label for="hargabeli">Harga Beli</label>
@@ -280,10 +288,6 @@ $user = "Rifqi";
                             <input autocomplete="off" type="text" name="hargajual" id="hargajual" class="input-add" value="<?php echo $brg['hargajual']; ?>">
                         </div>
                         <div class="add__input">
-                            <label for="stok">Stok</label>
-                            <input autocomplete="off" type="text" name="stok" id="stok" class="input-add" value="<?php echo $brg['stok']; ?>">
-                        </div>
-                        <div class="add__input">
                             <label for="suplier">Suplier</label>
                             <input autocomplete="off" type="text" name="suplier" id="suplier" class="input-add" value="<?php echo $brg['suplier']; ?>">
                         </div>
@@ -292,6 +296,8 @@ $user = "Rifqi";
                             <input autocomplete="off" type="text" name="keterangan" id="keterangan" class="input-add" value="<?php echo $brg['keterangan']; ?>">
                         </div>
                     </div>
+
+                    <input type="hidden" name="id" value="<?php echo $brg['id']; ?>">
                     <button name="simpan" type="submit" class="btn btn__simpan">Simpan</button>
                 </form>
             <?php
@@ -334,7 +340,7 @@ $user = "Rifqi";
             Swal.fire({
                 position: "bottom-end",
                 icon: "error",
-                title: "<?php echo $_SESSION['sukses']; ?>",
+                title: "<?php echo $_SESSION['gagal']; ?>",
                 showConfirmButton: false,
                 timer: 3000,
 
