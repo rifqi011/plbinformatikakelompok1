@@ -26,6 +26,6 @@ if (isset($_POST['simpan'])) {
 }
     if ($query) {
         header('Location: ../../admin.php');
-        $_SESSION['sukses'] = "Barang berhasil ditambahkan ke keranjang";
+        $_SESSION['sukses'] = "Barang berhasil ditambahkan";
     }
 
