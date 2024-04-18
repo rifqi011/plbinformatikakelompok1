@@ -118,7 +118,7 @@ $idpengunjung = $pengunjung['id'];
 
                             <!-- query Data Barang -->
                             <?php
-                            $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]' ");
+                            $barang = mysqli_query($connect, "SELECT * FROM barang WHERE kategori = '$kat[kategori]' AND status = 1");
                             while ($brg = mysqli_fetch_array($barang)) {
                             ?>
 

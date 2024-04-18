@@ -99,7 +99,7 @@ $user = "Rifqi";
             <div id="product-search">
                 <!-- Product Card -->
                 <?php
-                $barang = mysqli_query($connect, "SELECT * FROM barang");
+                $barang = mysqli_query($connect, "SELECT * FROM barang ORDER by status DESC");
                 while ($brg = mysqli_fetch_array($barang)) {
                 ?>
                     <div class="product__card">
@@ -116,7 +116,17 @@ $user = "Rifqi";
 
                             <div class="product__btn flex">
                                 <a class="btn btn__edit" href=""><i class="bx bx-edit-alt"></i></a>
-                                <a class="btn btn__minus" href=""><i class="bx bx-minus"></i></a>
+                                <?php
+                                if ($brg['status'] == 1) {
+                                ?>
+                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id'];?>&status=0"><i class="bx bx-minus"></i></a>
+                                <?php
+                                } else {
+                                ?>
+                                    <a class="btn btn__minus" href="admin/prosesadmin/statusbarang.php?id=<?= $brg['id'];?>&status=1"><i class="bx bx-plus"></i></a>
+                                <?php
+                                }
+                                ?>
                                 <div class="btn btn__info"><i class='bx bx-dots-vertical-rounded' onclick="productPopUp(<?php echo $brg['id']; ?>)"></i></div>
                             </div>
                         </div>

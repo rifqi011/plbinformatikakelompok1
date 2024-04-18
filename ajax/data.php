@@ -10,7 +10,7 @@ if (empty($keyword)) {
     <?php
 } else {
     // Jika tidak kosong, lakukan pencarian
-    $query = "SELECT * FROM barang WHERE nama LIKE '%$keyword%' OR keterangan LIKE '%$keyword%'";
+    $query = "SELECT * FROM barang WHERE nama LIKE '%$keyword%' OR keterangan LIKE '%$keyword%' WHERE status = 1";
     $data = mysqli_query($connect, $query);
 
     // Periksa apakah ada hasil dari query
