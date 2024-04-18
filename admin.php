@@ -167,7 +167,7 @@ $user = "Rifqi";
                 <div class="popup__body">
                     <div class="add__input">
                         <label for="nama">Masukan Nama</label>
-                        <input type="text" name="nama" id="nama" class="input-add">
+                        <input autocomplete="off" type="text" name="nama" id="nama" class="input-add">
                     </div>
 
                     <div class="add__input">
@@ -185,29 +185,33 @@ $user = "Rifqi";
 
                     <div class="add__input">
                         <label for="hargabeli">Masukan Harga Beli</label>
-                        <input type="text" name="hargabeli" id="hargabeli" class="input-add">
+                        <input autocomplete="off" type="text" name="hargabeli" id="hargabeli" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="hargajual">Masukan Harga Jual</label>
-                        <input type="text" name="hargajual" id="hargajual" class="input-add">
+                        <input autocomplete="off" type="text" name="hargajual" id="hargajual" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="suplier">Masukan Suplier</label>
-                        <input type="text" name="suplier" id="suplier" class="input-add">
+                        <input autocomplete="off" type="text" name="suplier" id="suplier" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="satuan">Masukan Satuan</label>
-                        <input type="text" name="satuan" id="satuan" class="input-add">
+                        <input autocomplete="off" type="text" name="satuan" id="satuan" class="input-add">
                     </div>
                     <div class="add__input">
                         <label for="foto">Masukan Foto</label>
                         <input type="file" name="foto" id="foto">
                     </div>
+                    <div class="add__input">
+                        <label for="keterangan">Masukan Keterangan</label>
+                        <input autocomplete="off" type="text" name="keterangan" id="keterangan" class="input-add">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn__simpan">Simpan</button>
+                <button name="simpan" type="submit" class="btn btn__simpan">Simpan</button>
             </form>
         </section>
 
