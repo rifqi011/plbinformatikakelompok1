@@ -153,9 +153,13 @@ $user = "Rifqi";
                     <hr class="hr-pop">
 
                     <div class="popup__body">
-                        <p>Lorem, ipsxum dolor.</p>
-                        <p>Lorem, ipsum dolor.</p>
-                        <p>Lorem, ipsum dolor.</p>
+                        <h3>Nama: <?php echo $brg['nama']; ?></h3><br>
+                        <h3>kategori: <?php echo $brg['kategori']; ?></h3><br>
+                        <h3>hargabeli: <?php echo $brg['hargabeli']; ?></h3><br>
+                        <h3>hargajual: <?php echo $brg['hargajual']; ?></h3><br>
+                        <h3>stok: <?php echo $brg['stok']; ?></h3><br>
+                        <h3>suplier: <?php echo $brg['suplier']; ?></h3><br>
+                        <h3>keterangan: <?php echo $brg['keterangan']; ?></h3><br>
                     </div>
                 </div>
             <?php
