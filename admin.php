@@ -167,11 +167,11 @@ $user = "Rifqi";
                 <div class="popup__body">
                     <div class="add__input">
                         <label for="nama">Masukan Nama</label>
-                        <input type="text" name="nama" id="nama">
+                        <input type="text" name="nama" id="nama" class="input-add">
                     </div>
 
                     <div class="add__input">
-                        <label for="nama">Masukan Nama</label>
+                        <label for="nama">Masukan Kategori</label>
                         <select name="kategori" id="kategori">
                             <?php
                             $sql = mysqli_query($connect, "SELECT * FROM kategori");
@@ -185,28 +185,29 @@ $user = "Rifqi";
 
                     <div class="add__input">
                         <label for="hargabeli">Masukan Harga Beli</label>
-                        <input type="text" name="hargabeli" id="hargabeli">
+                        <input type="text" name="hargabeli" id="hargabeli" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="hargajual">Masukan Harga Jual</label>
-                        <input type="text" name="hargajual" id="hargajual">
+                        <input type="text" name="hargajual" id="hargajual" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="suplier">Masukan Suplier</label>
-                        <input type="text" name="suplier" id="suplier">
+                        <input type="text" name="suplier" id="suplier" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="satuan">Masukan Satuan</label>
-                        <input type="text" name="satuan" id="satuan">
+                        <input type="text" name="satuan" id="satuan" class="input-add">
                     </div>
                     <div class="add__input">
-                        <label for="satuan">Masukan Satuan</label>
-                        <input type="file" name="satuan" id="satuan">
+                        <label for="foto">Masukan Foto</label>
+                        <input type="file" name="foto" id="foto">
                     </div>
                 </div>
+                <button type="submit" class="btn btn__simpan">Simpan</button>
             </form>
         </section>
 

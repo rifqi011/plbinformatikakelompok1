@@ -162,7 +162,7 @@ body {
 }
 
 .btn__add {
-    background-color: var(--dark-green-color);
+    background-color: dodgerblue;
     color: var(--white-color);
     position: fixed;
     right: 10%;
@@ -185,7 +185,8 @@ body {
 
 .btn__edit,
 .btn__minus,
-.btn__info {
+.btn__info,
+.btn__simpan {
     color: var(--white-color);
     padding: .5rem;
     border-radius: .5rem;
@@ -205,3 +206,25 @@ body {
 }
 
 /* Tambah Barang */
+.add__input label {
+    display: block;
+}
+
+.input-add {
+    width: 100%;
+    border: 1px solid var(--gray-color);
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding-inline: .5rem;
+    border-radius: .5rem;
+}
+
+.add__input {
+    margin-block: .5rem;
+}
+
+.btn__simpan {
+    background-color: var(--dark-green-color);
+    margin-block-start: 2rem;
+}
