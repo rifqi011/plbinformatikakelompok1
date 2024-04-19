@@ -65,7 +65,7 @@ $namatoko = mysqli_fetch_array($toko);
         } else {
             // Kondisi Jika Tidak Ada SESSION
         ?>
-            <h1 style="text-align: center;">Silahkan masuk terlebih dahulu</h1>
+            <img src="../assets/img/icon/masuk.png" alt="" class="image-alt">
 
             <li class="profile__item login__button">
                 <a class="profile__link flex profile__btn" href="login.php"><i class="bx bx-pencil"></i>Masuk</a>

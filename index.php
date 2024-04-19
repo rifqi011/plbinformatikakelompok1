@@ -245,10 +245,12 @@ $idpengunjung = $pengunjung['id'];
                                 </div>
                             </div>
                         </div>
-                <?php
+                    <?php
                 }
             } else {
-                echo "Keranjang kosong";
+                    ?>
+                    <img src="assets/img/icon/keranjang.png" alt="" class="image-alt">
+                <?php
             }
                 ?>
 
@@ -333,7 +335,7 @@ $idpengunjung = $pengunjung['id'];
             } else {
                 ?>
                 <h2 class="section__title">Pembelian</h2>
-                <p>Login untuk melihat</p>
+                <img src="assets/img/icon/masuk.png" alt="" class="image-alt">
             <?php
             }
             ?>

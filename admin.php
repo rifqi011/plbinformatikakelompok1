@@ -202,12 +202,12 @@ $user = "Rifqi";
                 <div class="popup__body">
                     <div class="add__input">
                         <label for="nama">Masukan Nama</label>
-                        <input autocomplete="off" type="text" name="nama" id="nama" class="input-add">
+                        <input autocomplete="off" type="text"  minlength="5" required name="nama" id="nama" class="input-add">
                     </div>
 
                     <div class="add__input">
                         <label for="nama">Masukan Kategori</label>
-                        <select name="kategori" id="kategori">
+                        <select name="kategori" id="kategori" class="input-add">
                             <?php
                             $sql = mysqli_query($connect, "SELECT * FROM kategori");
                             while ($data = mysqli_fetch_array($sql)) { ?>
@@ -220,7 +220,7 @@ $user = "Rifqi";
 
                     <div class="add__input">
                         <label for="hargabeli">Masukan Harga Beli</label>
-                        <input autocomplete="off" type="text" name="hargabeli" id="hargabeli" class="input-add">
+                        <input autocomplete="off" type="number" min="0" name="hargabeli" id="hargabeli" class="input-add">
                     </div>
 
                     <div class="add__input">
@@ -239,7 +239,7 @@ $user = "Rifqi";
                     </div>
                     <div class="add__input">
                         <label for="foto">Masukan Foto</label>
-                        <input type="file" name="foto" id="foto">
+                        <input type="file" name="foto" id="foto" class="input-add">
                     </div>
                     <div class="add__input">
                         <label for="keterangan">Masukan Keterangan</label>
@@ -269,7 +269,7 @@ $user = "Rifqi";
                         </div>
                         <div class="add__input">
                             <label for="nama">Kategori</label>
-                            <select name="kategori" id="kategori">
+                            <select name="kategori" id="kategori" class="input-add">
                                 <?php
                                 $sql = mysqli_query($connect, "SELECT * FROM kategori");
                                 while ($data = mysqli_fetch_array($sql)) { ?>

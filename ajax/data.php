@@ -10,7 +10,7 @@ if (empty($keyword)) {
     <?php
 } else {
     // Jika tidak kosong, lakukan pencarian
-    $query = "SELECT * FROM barang WHERE nama LIKE '%$keyword%' OR keterangan LIKE '%$keyword%' WHERE status = 1";
+    $query = "SELECT * FROM barang WHERE nama LIKE '%$keyword%' OR keterangan LIKE '%$keyword%' AND status = 1";
     $data = mysqli_query($connect, $query);
 
     // Periksa apakah ada hasil dari query
@@ -41,11 +41,13 @@ if (empty($keyword)) {
                     ?>
                 </div>
             </div>
-<?php
+        <?php
         }
     } else {
         // Tampilkan pesan jika tidak ada hasil yang sesuai dengan pencarian
-        echo "<h1>Barang tidak ditemukan</h1>";
+        ?>
+        <img src="assets/img/icon/barang.png" alt="" class="image-alt">
+<?php
     }
 }
 ?>
