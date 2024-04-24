@@ -208,7 +208,7 @@ $idpengunjung = $pengunjung['id'];
         <!-- section pencarian -->
         <section id="search" class="section container flex hidden">
             <form action="" method="post" class="search__bar">
-                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari seuatu..." autofocus>
+                <input autocomplete="off" type="text" name="search" id="search-input" placeholder="Cari sesuatu..." autofocus>
             </form>
 
             <hr>
@@ -270,7 +270,7 @@ $idpengunjung = $pengunjung['id'];
                         <?php
                         } else {
                         ?>
-                            <a href="login.php" class="btn btn__checkout" type="submit" name="beli">Beli Barang</a>
+                            <a href="client/login.php" class="btn btn__checkout" type="submit" name="beli">Beli Barang</a>
                         <?php
                         }
                         ?>

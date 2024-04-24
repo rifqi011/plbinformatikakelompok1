@@ -8,8 +8,13 @@ $toko = mysqli_query($connect, "SELECT * FROM setting");
 $namatoko = mysqli_fetch_array($toko);
 
 // Session harus login sebelum mengakses admin
-// $user = $_SESSION['admin'];
+$user = $_SESSION['admin'];
 $user = "Rifqi";
+
+if (!isset($_SESSION['admin'])) {
+    header('Location: /plbinformatikakelompok1/index.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -26,13 +31,13 @@ $user = "Rifqi";
 
 <body>
     <?php
-    /* if (isset($user)) {
+    if (isset($user)) {
         ?>
-            <!-- <a href="admin/prosesadmin/logoutadmin.php">Log out</a> -->
+            <a href="admin/prosesadmin/logoutadmin.php">Log out</a>
         <?php
         } else {
-            // header("Location: login.php");
-        } */
+            header("Location: login.php");
+        }
     ?>
 
     <header id="header" class="container">
